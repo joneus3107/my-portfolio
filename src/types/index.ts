@@ -95,7 +95,6 @@ export interface ProfileData {
   availability: 'Available for hire' | 'Open to opportunities' | 'Booked';
   yearsExperience: number;
   completedProjects: number;
-  openSourceContributions: number;
   satisfactionRate: number;
   socials: {
     github: string;
