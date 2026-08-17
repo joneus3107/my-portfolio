@@ -1,0 +1,122 @@
+@import "tailwindcss";
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #FDFCF9;
+    color: #2D2D2D;
+  }
+
+  .font-serif {
+    font-family: 'Newsreader', Georgia, 'Playfair Display', serif;
+  }
+
+  .font-handwriting, .font-caveat {
+    font-family: 'Caveat', cursive, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom subtle animations and smooth styling */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulseSubtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes gridGlow {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulseSubtle 3s ease-in-out infinite;
+}
+
+/* Dot grid background for subtle natural minimalist texture */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    radial-gradient(circle, rgba(140, 123, 106, 0.12) 1px, transparent 1px);
+}
+
+.bg-dot-pattern-dense {
+  background-size: 20px 20px;
+  background-image: 
+    radial-gradient(circle, rgba(140, 123, 106, 0.10) 1px, transparent 1px);
+}
+
+/* Natural glass effect for warm minimalist UI */
+.glass-panel {
+  background: rgba(253, 252, 249, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #EBE7E0;
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: #FFFFFF;
+  border-color: #7E8F7C;
+  box-shadow: 0 20px 40px -15px rgba(92, 84, 75, 0.08), 0 0 0 1px rgba(126, 143, 124, 0.15);
+}
+
+/* Warm subtle scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FDFCF9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8D2C7;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8C7B6A;
+}
+
+/* Print styling for resume */
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .no-print {
+    display: none !important;
+  }
+}

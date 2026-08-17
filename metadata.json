@@ -1,0 +1,6 @@
+{
+  "name": "Minimalist Frontend Developer Portfolio",
+  "description": "A clean, minimalist white-themed portfolio for frontend developers featuring interactive projects showcase, interactive resume, skill benchmarks, live previews, and contact tools built with React & MUI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

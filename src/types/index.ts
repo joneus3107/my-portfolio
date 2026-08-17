@@ -1,0 +1,108 @@
+export interface Project {
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  longDescription?: string;
+  category: 'React & Next.js' | 'Design Systems' | 'Tools & Apps' | 'Full-Stack';
+  featured: boolean;
+  image: string;
+  mockupType?: 'browser' | 'mobile' | 'dashboard';
+  tags: string[];
+  metrics?: { label: string; value: string }[];
+  liveUrl?: string;
+  githubUrl?: string;
+  challenges?: string[];
+  solutions?: string[];
+  keyFeatures?: string[];
+  techArchitecture?: string[];
+  codeSnippet?: {
+    filename: string;
+    language: string;
+    code: string;
+  };
+}
+
+export interface WorkExperience {
+  id: string;
+  role: string;
+  company: string;
+  companyUrl?: string;
+  location: string;
+  type: 'Full-time' | 'Contract' | 'Remote';
+  startDate: string;
+  endDate: string;
+  current: boolean;
+  description: string;
+  achievements: string[];
+  technologies: string[];
+}
+
+export interface EducationItem {
+  id: string;
+  degree: string;
+  institution: string;
+  location: string;
+  year: string;
+  honors?: string;
+  relevantCourses?: string[];
+}
+
+export type Education = EducationItem;
+
+export interface Certification {
+  id: string;
+  name: string;
+  issuer: string;
+  date: string;
+  credentialUrl?: string;
+  badge?: string;
+}
+
+export interface SkillCategory {
+  category: string;
+  description: string;
+  iconName: string;
+  skills: {
+    name: string;
+    level: number; // 1-100
+    experience: string;
+    highlight?: boolean;
+    tag?: string;
+  }[];
+}
+
+export interface Testimonial {
+  id: string;
+  name: string;
+  role: string;
+  company: string;
+  avatar: string;
+  content: string;
+  relation: string;
+  linkedinUrl?: string;
+}
+
+export interface ProfileData {
+  name: string;
+  title: string;
+  subtitle: string;
+  bio: string;
+  avatarUrl: string;
+  location: string;
+  email: string;
+  phone: string;
+  availability: 'Available for hire' | 'Open to opportunities' | 'Booked';
+  yearsExperience: number;
+  completedProjects: number;
+  openSourceContributions: number;
+  satisfactionRate: number;
+  socials: {
+    github: string;
+    linkedin: string;
+    twitter: string;
+    dribbble?: string;
+    codepen?: string;
+  };
+  resumePdfUrl?: string;
+}
