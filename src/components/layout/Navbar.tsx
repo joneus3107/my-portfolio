@@ -139,12 +139,12 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
                 <span className="font-serif font-semibold text-lg tracking-tight text-[#2D2D2D]">
                   {profile.name}
                 </span>
-                <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-[#F5F2EE] text-[#5C5146] border border-[#EBE7E0]">
+                <span className="hidden md:inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-[#F5F2EE] text-[#5C5146] border border-[#EBE7E0]">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#7E8F7C] animate-pulse"></span>
                   Available
                 </span>
               </Box>
-              <span className="text-[10px] uppercase tracking-[0.15em] text-[#8C7B6A] font-semibold">
+              <span className="hidden md:block text-[10px] uppercase tracking-[0.15em] text-[#8C7B6A] font-semibold">
                 {profile.title}
               </span>
             </Box>
@@ -327,7 +327,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
             >
               View & Print Full Resume
             </Button>
-            <Button
+            {/* <Button
               fullWidth
               variant="contained"
               startIcon={<Sliders className="w-4 h-4" />}
@@ -337,7 +337,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
               }}
             >
               Customize Portfolio Details
-            </Button>
+            </Button> */}
           </Box>
         </List>
       </Drawer>
