@@ -39,8 +39,8 @@ const navItems = [
   { label: 'Projects', href: '#projects' },
   { label: 'Resume', href: '#resume' },
   { label: 'Skills', href: '#skills' },
-  { label: 'Playground', href: '#playground' },
-  { label: 'Testimonials', href: '#testimonials' },
+  // { label: 'Playground', href: '#playground' },
+  // { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -193,7 +193,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             
             {/* Customizer Tooltip Button */}
-            <Tooltip title="Customize Portfolio Data (Name, Bio, Projects)">
+            {/* <Tooltip title="Customize Portfolio Data (Name, Bio, Projects)">
               <IconButton
                 onClick={onOpenCustomizer}
                 size="small"
@@ -210,7 +210,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
               >
                 <Sliders className="w-4 h-4" />
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
 
             {/* Resume Button */}
             <Button

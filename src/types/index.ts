@@ -100,9 +100,6 @@ export interface ProfileData {
   socials: {
     github: string;
     linkedin: string;
-    twitter: string;
-    dribbble?: string;
-    codepen?: string;
   };
   resumePdfUrl?: string;
 }

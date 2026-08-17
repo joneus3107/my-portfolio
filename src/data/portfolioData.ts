@@ -1,25 +1,22 @@
 import { ProfileData, Project, WorkExperience, EducationItem, Certification, SkillCategory, Testimonial } from '../types';
 
 export const initialProfile: ProfileData = {
-  name: 'Alex Vance',
-  title: 'Senior Frontend Developer',
+  name: 'Bình Lê',
+  title: 'Junior Frontend / Fresher Fullstack',
   subtitle: 'Building minimalist, high-performance web experiences & design systems with React, TypeScript & Next.js',
   bio: 'Specialized in bridging the gap between elegant UI/UX design and scalable, resilient frontend architecture. I have 6+ years of experience engineering accessible, responsive web applications with sub-second page loads and zero-latency micro-interactions.',
-  avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-  location: 'San Francisco, CA (Open to Remote)',
-  email: 'alex.vance.dev@gmail.com',
-  phone: '+1 (415) 890-3421',
+  avatarUrl: '/images/avatar.jpeg',
+  location: 'Vĩnh Hội District, Hồ Chí Minh city',
+  email: 'lelacbinh3107@gmail.com',
+  phone: '(+84) 86 822 7257',
   availability: 'Available for hire',
   yearsExperience: 6,
   completedProjects: 42,
   openSourceContributions: 180,
   satisfactionRate: 99.4,
   socials: {
-    github: 'https://github.com',
-    linkedin: 'https://linkedin.com',
-    twitter: 'https://twitter.com',
-    dribbble: 'https://dribbble.com',
-    codepen: 'https://codepen.io',
+    github: 'https://github.com/joneus3107',
+    linkedin: 'https://www.linkedin.com/in/b%C3%ACnh-l%C3%AA-b08512333/',
   },
 };
 

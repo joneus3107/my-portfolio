@@ -24,7 +24,6 @@ import {
   Sparkles,
   Github,
   Linkedin,
-  Twitter,
   Clock,
   CheckCircle2,
   MessageSquare
@@ -196,7 +195,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
                       <Phone className="w-4 h-4 text-[#7E8F7C]" />
                     </div>
                     <div>
-                      <div className="text-[11px] text-[#8C7B6A] font-medium">Phone / WhatsApp</div>
+                      <div className="text-[11px] text-[#8C7B6A] font-medium">Phone number</div>
                       <div className="text-sm font-bold text-[#2D2D2D] font-mono">{profile.phone}</div>
                     </div>
                   </div>
@@ -241,16 +240,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
                       className="px-3.5 py-2 rounded-xl bg-white border border-[#EBE7E0] text-xs font-semibold text-[#2D2D2D] hover:bg-[#F5F2EE] hover:border-[#7E8F7C] flex items-center gap-1.5 transition-colors"
                     >
                       <Linkedin className="w-3.5 h-3.5 text-[#5C5146]" /> LinkedIn
-                    </a>
-                  )}
-                  {profile.socials.twitter && (
-                    <a
-                      href={profile.socials.twitter}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-3.5 py-2 rounded-xl bg-white border border-[#EBE7E0] text-xs font-semibold text-[#2D2D2D] hover:bg-[#F5F2EE] hover:border-[#7E8F7C] flex items-center gap-1.5 transition-colors"
-                    >
-                      <Twitter className="w-3.5 h-3.5 text-[#5C5146]" /> Twitter
                     </a>
                   )}
                 </div>

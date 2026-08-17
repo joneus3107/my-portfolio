@@ -3,10 +3,7 @@ import { Container, Box, Typography, IconButton, Tooltip, Divider } from '@mui/m
 import { 
   ArrowUp, 
   Github, 
-  Linkedin, 
-  Twitter, 
-  Dribbble, 
-  Codepen, 
+  Linkedin,
   Heart,
   Code2,
   Mail,
@@ -115,42 +112,6 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
                     }}
                   >
                     <Linkedin className="w-4 h-4" />
-                  </IconButton>
-                </Tooltip>
-              )}
-              {profile.socials.twitter && (
-                <Tooltip title="Twitter / X">
-                  <IconButton
-                    component="a"
-                    href={profile.socials.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      border: '1px solid #EBE7E0',
-                      backgroundColor: '#FFFFFF',
-                      color: '#5C544B',
-                      '&:hover': { backgroundColor: '#F5F2EE', color: '#2D2D2D', borderColor: '#7E8F7C' },
-                    }}
-                  >
-                    <Twitter className="w-4 h-4" />
-                  </IconButton>
-                </Tooltip>
-              )}
-              {profile.socials.dribbble && (
-                <Tooltip title="Dribbble">
-                  <IconButton
-                    component="a"
-                    href={profile.socials.dribbble}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      border: '1px solid #EBE7E0',
-                      backgroundColor: '#FFFFFF',
-                      color: '#5C544B',
-                      '&:hover': { backgroundColor: '#F5F2EE', color: '#2D2D2D', borderColor: '#7E8F7C' },
-                    }}
-                  >
-                    <Dribbble className="w-4 h-4" />
                   </IconButton>
                 </Tooltip>
               )}

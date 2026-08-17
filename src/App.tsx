@@ -99,10 +99,10 @@ export default function App() {
           <SkillsSection skillCategories={skillCategories} />
 
           {/* Live UI Playground & Design Token Studio */}
-          <InteractivePlayground />
+          {/* <InteractivePlayground /> */}
 
           {/* Peer & Leader Testimonials */}
-          <TestimonialsSection testimonials={testimonials} />
+          {/* <TestimonialsSection testimonials={testimonials} /> */}
 
           {/* Contact Section & Booking */}
           <ContactSection profile={profile} />
