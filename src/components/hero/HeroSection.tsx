@@ -178,7 +178,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
 
             {/* Quick Skills Pill Carousel */}
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1.2 }}>
-              {['ReactJS 19', 'Wordpress', 'jQuery', 'Material UI', 'UIkit', 'GSAP'].map((tech) => (
+              {['ReactJS 19', 'Wordpress', 'jQuery', 'Material UI', 'UIkit', 'GSAP', 'Git'].map((tech) => (
                 <Chip
                   key={tech}
                   label={tech}
