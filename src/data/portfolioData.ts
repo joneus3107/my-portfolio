@@ -50,6 +50,38 @@ export const sampleProjects: Project[] = [
       {label: 'Tools', value: ['GitHub', 'Gulp/webpack']},
     ]
   },
+  {
+    id: 'video-unite',
+    title: 'Video Unite',
+    tagline: 'Animation, Responsive, Contact Form, Recruitment Portal, CSS Animation',
+    description: 'Developed a responsive, modern corporate website for a Japanese video production agency, showcasing their creative portfolio, service plans, and client inquiry flows.',
+    longDescription: 'Implemented a sleek, pixel-perfect corporate website for Video Unite, a Japanese creative video production company. Focused on crafting smooth, artistic scroll animations and fluid micro-interactions to evoke an airy, cinematic feel, while delivering a dynamic video showcase and high-precision responsive layouts across all devices.',
+    category: 'Wordpress',
+    featured: false,
+    image: '/images/projects/video-unite.png',
+    mockupType: 'dashboard',
+    tags: ['WordPress', 'jQuery', 'SlickJS', 'MW WP Form', 'AJAX'],
+    metrics: [
+      { label: 'Animations', value: 'Smooth' },
+      { label: 'Responsive Layout', value: '100%' },
+      { label: 'Custom Post Types', value: '5+' },
+      { label: 'Weeks', value: '2' },
+    ],
+    liveUrl: 'https://videounite.co.jp/',
+    scope: [
+      'Developed responsive WordPress themes from design files (Photoshop/XD) with high precision.',
+      'Implemented technical solutions per requirements, including ACF for dynamic content and SlickJS for custom sliders.',
+      'Maintained the platform and delivered iterative feature updates based on client requests.',
+      'Researching and implementing animations on the website while maintaining a smooth user experience.',
+      'Ensure enhanced security by using Google CAPTCHA.',
+    ],
+    techStack: [
+      {label: "Core", value: ['WordPress (Custom Theme)', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS', 'JavaScript', 'jQuery']},
+      {label: 'Plugins & Libraries', value: ['Advanced Custom Fields (ACF)', 'MW WP Form', 'SlickJS', 'AOS']},
+      {label: 'Design', value: ['Adobe Photoshop']},
+      {label: 'Tools', value: ['GitHub', 'Gulp/webpack']},
+    ]
+  }
 ];
 
 export const workExperiences: WorkExperience[] = [

@@ -37,8 +37,8 @@ interface NavbarProps {
 const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Resume', href: '#resume' },
-  { label: 'Skills', href: '#skills' },
+  // { label: 'Resume', href: '#resume' },
+  // { label: 'Skills', href: '#skills' },
   // { label: 'Playground', href: '#playground' },
   // { label: 'Testimonials', href: '#testimonials' },
   { label: 'Contact', href: '#contact' },

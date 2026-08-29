@@ -86,37 +86,41 @@ export default function App() {
           {/* Selected Case Studies & Projects */}
           <ProjectsSection projects={projects} />
 
-          {/* Resume & Work History Timeline */}
-          <ResumeSection
-            profile={profile}
-            experiences={workExperiences}
-            education={educationList}
-            certifications={certificationsList}
-            onOpenDocModal={() => setResumeDocOpen(true)}
-          />
+          {/* --- HIDE SECTIONS --- */}
+          <Box sx={{display: 'none'}}>
+            {/* Resume & Work History Timeline */}
+            <ResumeSection
+              profile={profile}
+              experiences={workExperiences}
+              education={educationList}
+              certifications={certificationsList}
+              onOpenDocModal={() => setResumeDocOpen(true)}
+            />
 
-          {/* Technical Skills & Architecture Pillars */}
-          <SkillsSection skillCategories={skillCategories} />
+            {/* Technical Skills & Architecture Pillars */}
+            <SkillsSection skillCategories={skillCategories} />
 
-          {/* Live UI Playground & Design Token Studio */}
-          {/* <InteractivePlayground /> */}
+            {/* Live UI Playground & Design Token Studio */}
+            {/* <InteractivePlayground /> */}
 
-          {/* Peer & Leader Testimonials */}
-          {/* <TestimonialsSection testimonials={testimonials} /> */}
+            {/* Peer & Leader Testimonials */}
+            {/* <TestimonialsSection testimonials={testimonials} /> */}
+          </Box>
 
           {/* Contact Section & Booking */}
           <ContactSection profile={profile} />
         </Box>
+        {/* --- /HIDE SECTIONS --- */}
 
         {/* Clean Footer */}
         <Footer profile={profile} />
 
         {/* Floating AI Recruiter & Experience Assistant */}
-        <AiPortfolioAssistant
+        {/* <AiPortfolioAssistant
           profile={profile}
           projects={projects}
           experiences={workExperiences}
-        />
+        /> */}
 
         {/* Printable/Full Formatted Resume Modal */}
         <ResumeDocumentModal
@@ -129,14 +133,14 @@ export default function App() {
         />
 
         {/* Portfolio Details Personalizer Modal */}
-        <ProfileCustomizerModal
+        {/* <ProfileCustomizerModal
           open={customizerOpen}
           onClose={() => setCustomizerOpen(false)}
           profile={profile}
           onUpdateProfile={handleUpdateProfile}
           onAddProject={handleAddProject}
           onResetDefaults={handleResetDefaults}
-        />
+        /> */}
       </Box>
     </ThemeProvider>
   );
