@@ -18,7 +18,7 @@ interface ProjectsSectionProps {
   projects: Project[];
 }
 
-const categories = ['All', 'React & Next.js', 'Design Systems', 'Tools & Apps', 'Full-Stack'] as const;
+const categories = ['All', 'Wordpress', 'ReactJS', 'Full-Stack'] as const;
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
@@ -69,11 +69,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
               fontFamily: '"Caveat", cursive, sans-serif',
             }}
           >
-            Curated Works & Case Studies.
+            Projects & Case Studies
           </Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
-            A deliberate selection of production web applications, organic design systems, and high-performance React architectures.
+            A collection of production-ready websites and web apps, focusing on clean architecture, performance, and seamless user experiences.
           </Typography>
         </Box>
 

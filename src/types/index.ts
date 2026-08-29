@@ -4,23 +4,16 @@ export interface Project {
   tagline: string;
   description: string;
   longDescription?: string;
-  category: 'React & Next.js' | 'Design Systems' | 'Tools & Apps' | 'Full-Stack';
+  category: 'Wordpress' | 'ReactJS' | 'Full-Stack';
   featured: boolean;
   image: string;
   mockupType?: 'browser' | 'mobile' | 'dashboard';
   tags: string[];
   metrics?: { label: string; value: string }[];
   liveUrl?: string;
-  githubUrl?: string;
-  challenges?: string[];
-  solutions?: string[];
-  keyFeatures?: string[];
+  scope?: string[];
   techArchitecture?: string[];
-  codeSnippet?: {
-    filename: string;
-    language: string;
-    code: string;
-  };
+  techStack: { label: string, value: string[] }[];
 }
 
 export interface WorkExperience {

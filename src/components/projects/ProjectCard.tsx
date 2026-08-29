@@ -16,7 +16,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        borderRadius: 4,
+        borderRadius: 2,
         border: '1px solid #EBE7E0',
         backgroundColor: '#FFFFFF',
         overflow: 'hidden',
@@ -90,13 +90,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
             onClick={() => onSelectProject(project)}
             sx={{ cursor: 'pointer', mb: 1 }}
           >
-            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, mb: 1 }}>
               <Typography
                 variant="h6"
                 sx={{
                   fontWeight: 600,
-                  fontSize: '1.25rem',
-                  fontFamily: '"Newsreader", Georgia, serif',
+                  fontSize: '1.75rem',
+                  fontFamily: '"Caveat", cursive, sans-serif',
                   color: '#2D2D2D',
                   lineHeight: 1.25,
                   '&:hover': { color: '#7E8F7C' },
@@ -131,8 +131,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
           {project.metrics && project.metrics.length > 0 && (
             <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, mb: 2.5, p: 1.5, backgroundColor: '#FAF8F5', borderRadius: 2, border: '1px solid #EBE7E0' }}>
               {project.metrics.slice(0, 2).map((metric, idx) => (
-                <div key={idx}>
-                  <div className="text-xs font-bold font-mono text-[#2D2D2D]">{metric.value}</div>
+                <div key={idx} className='text-center'>
+                  <div className="text-lg font-bold font-mono text-[#2D2D2D]">{metric.value}</div>
                   <div className="text-[10px] uppercase tracking-wider text-[#8C7B6A] truncate">{metric.label}</div>
                 </div>
               ))}
@@ -184,25 +184,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
               }
             }}
           >
-            Case Study
+            View Detail
           </Button>
 
           <Box sx={{ display: 'flex', gap: 1 }}>
-            {project.githubUrl && (
-              <Tooltip title="View Source Code">
-                <Button
-                  size="small"
-                  variant="text"
-                  component="a"
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{ minWidth: 32, p: 0.75, color: '#8C7B6A', '&:hover': { color: '#2D2D2D' } }}
-                >
-                  <Github className="w-4 h-4" />
-                </Button>
-              </Tooltip>
-            )}
             {project.liveUrl && (
               <Tooltip title="Open Live App">
                 <Button

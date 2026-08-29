@@ -44,14 +44,6 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
 
   if (!project) return null;
 
-  const handleCopyCode = () => {
-    if (project.codeSnippet) {
-      navigator.clipboard.writeText(project.codeSnippet.code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
   return (
     <Dialog
       open={open}
@@ -63,7 +55,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
         paper: {
           sx: {
             borderRadius: { xs: 3, sm: 4 },
-            backgroundColor: '#FFFFFF',
+            backgroundImage: 'linear-gradient(180deg, #FDFCF9 0%, #F6F3EE 100%)',
             p: { xs: 1, sm: 2 },
             overflow: 'hidden',
           }
@@ -97,7 +89,13 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
           )}
         </div>
 
-        <Typography variant="h4" sx={{ fontWeight: 800, color: 'text.primary', mb: 1, pr: 5 }}>
+        <Typography variant="h4" sx={{ 
+          fontWeight: 800,
+          fontSize: { xs: '2.5rem', sm: '3.4rem' },
+          color: '#2D2D2D', 
+          mb: 1, 
+          pr: 5, 
+          fontFamily: '"Caveat", cursive, sans-serif' }}>
           {project.title}
         </Typography>
 
@@ -120,7 +118,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
               Launch Live Application
             </Button>
           )}
-          {project.githubUrl && (
+          {/* {project.githubUrl && (
             <Button
               variant="outlined"
               size="small"
@@ -132,12 +130,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
             >
               View Repository
             </Button>
-          )}
+          )} */}
         </Box>
       </Box>
 
       {/* Interactive Mockup Frame Preview */}
-      <Box sx={{ px: { xs: 2, sm: 3 } }}>
+      <Box sx={{ px: { xs: 2, sm: 3 }, display: 'none' }}>
         <Box
           sx={{
             borderRadius: 3,
@@ -200,9 +198,8 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
       {/* Dialog Tabs */}
       <Box sx={{ px: { xs: 2, sm: 3 }, mt: 3, borderBottom: '1px solid #E4E4E7' }}>
         <Tabs value={tabValue} onChange={(_, newVal) => setTabValue(newVal)}>
-          <Tab label="Case Study & Overview" />
-          <Tab label="Engineering Challenges" />
-          <Tab label="Architecture & Code" />
+          <Tab label="Overview" />
+          <Tab label="Tech Stack" />
         </Tabs>
       </Box>
 
@@ -224,11 +221,11 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
             {project.metrics && project.metrics.length > 0 && (
               <div>
                 <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary', mb: 1.5 }}>
-                  Key Impact & Performance Metrics
+                  Project Highlights
                 </Typography>
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                   {project.metrics.map((metric, idx) => (
-                    <Box key={idx} sx={{ p: 2, backgroundColor: '#FAFAFA', borderRadius: 2.5, border: '1px solid #F4F4F5', textAlign: 'center' }}>
+                    <Box key={idx} sx={{ p: 2, backgroundColor: '#FAFAFA', borderRadius: 1, border: '1px solid #EBE7E0', textAlign: 'center' }}>
                       <div className="text-xl font-bold font-mono text-zinc-900">{metric.value}</div>
                       <div className="text-xs text-zinc-500 font-medium mt-0.5">{metric.label}</div>
                     </Box>
@@ -237,123 +234,46 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
               </div>
             )}
 
-            {/* Key Features */}
-            {project.keyFeatures && (
+            {/* Scope */}
+            {project.scope && (
               <div>
                 <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary', mb: 1.5 }}>
-                  Core Capabilities
+                  Scope
                 </Typography>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                  {project.keyFeatures.map((feat, i) => (
-                    <div key={i} className="flex items-start gap-2 text-sm text-zinc-700 bg-zinc-50 p-2.5 rounded-xl border border-zinc-100">
+                  {project.scope.map((feat, i) => (
+                    <Box key={i} className="flex items-start gap-2 text-sm text-zinc-700 bg-zinc-50 p-2.5 rounded-xl border border-zinc-100" sx={{border: '1px solid #EBE7E0'}}>
                       <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                       <span>{feat}</span>
-                    </div>
+                    </Box>
                   ))}
                 </div>
               </div>
             )}
-
-            {/* Tech Stack Tags */}
-            <div>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary', mb: 1.5 }}>
-                Technologies & Tools
-              </Typography>
-              <div className="flex flex-wrap gap-1.5">
-                {project.tags.map((tag) => (
-                  <Chip
-                    key={tag}
-                    label={tag}
-                    size="small"
-                    variant="outlined"
-                    sx={{ backgroundColor: '#FAFAFA', borderColor: '#E4E4E7', fontWeight: 500 }}
-                  />
-                ))}
-              </div>
-            </div>
           </Box>
         )}
 
-        {/* Tab 1: Challenges & Solutions */}
+        {/* Tab 1: TechStack */}
         {tabValue === 1 && (
           <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            <div>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary', mb: 1.5, display: 'flex', alignItems: 'center', gap: 1 }}>
-                <AlertCircle className="w-4 h-4 text-amber-600" />
-                Technical Hurdles & Constraints
-              </Typography>
-              <div className="space-y-2.5">
-                {project.challenges?.map((challenge, i) => (
-                  <div key={i} className="p-3 bg-amber-50/50 border border-amber-200/60 rounded-xl text-sm text-zinc-800">
-                    <strong>Hurdle {i + 1}:</strong> {challenge}
-                  </div>
-                )) || <p className="text-sm text-zinc-500">No specific blockers recorded.</p>}
-              </div>
-            </div>
-
-            <div>
-              <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary', mb: 1.5, display: 'flex', alignItems: 'center', gap: 1 }}>
-                <Zap className="w-4 h-4 text-emerald-600" />
-                Architectural Solutions & Execution
-              </Typography>
-              <div className="space-y-2.5">
-                {project.solutions?.map((solution, i) => (
-                  <div key={i} className="p-3 bg-emerald-50/40 border border-emerald-200/60 rounded-xl text-sm text-zinc-800">
-                    <strong>Solution {i + 1}:</strong> {solution}
-                  </div>
-                )) || <p className="text-sm text-zinc-500">Architected standard best practices.</p>}
-              </div>
-            </div>
-          </Box>
-        )}
-
-        {/* Tab 2: Architecture & Code */}
-        {tabValue === 2 && (
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-            {project.techArchitecture && (
-              <div>
-                <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary', mb: 1.5, display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Layers className="w-4 h-4 text-indigo-600" />
-                  Frontend Architecture Blueprint
+            {project.techStack?.map((tech, idx) => (
+              <div key={idx}>
+                <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary', mb: 1.5 }}>
+                  {tech.label}
                 </Typography>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {project.techArchitecture.map((arch, i) => (
-                    <div key={i} className="p-3 bg-zinc-50 border border-zinc-200 rounded-xl text-xs font-mono text-zinc-700">
-                      • {arch}
-                    </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {tech.value.map((tag) => (
+                    <Chip
+                      key={tag}
+                      label={tag}
+                      size="small"
+                      variant="outlined"
+                      sx={{ backgroundColor: '#FAFAFA', borderColor: '#E4E4E7', fontWeight: 500 }}
+                    />
                   ))}
                 </div>
               </div>
-            )}
-
-            {project.codeSnippet ? (
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-zinc-700">
-                    <Code2 className="w-4 h-4 text-zinc-900" />
-                    <span>Implementation: {project.codeSnippet.filename}</span>
-                  </div>
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    onClick={handleCopyCode}
-                    startIcon={copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
-                    sx={{ fontSize: '0.75rem', py: 0.25, px: 1.25 }}
-                  >
-                    {copied ? 'Copied' : 'Copy Code'}
-                  </Button>
-                </div>
-                <div className="rounded-xl bg-zinc-950 text-zinc-100 p-4 font-mono text-xs overflow-x-auto">
-                  <pre className="leading-relaxed text-zinc-300">
-                    {project.codeSnippet.code}
-                  </pre>
-                </div>
-              </div>
-            ) : (
-              <div className="p-6 text-center text-zinc-500 border border-dashed border-zinc-200 rounded-xl">
-                Code snippet available on GitHub repository.
-              </div>
-            )}
+            ))}
           </Box>
         )}
       </DialogContent>
