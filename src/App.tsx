@@ -95,12 +95,11 @@ export default function App() {
             certifications={certificationsList}
             onOpenDocModal={() => setResumeDocOpen(true)}
           />
+
+          {/* Technical Skills & Architecture Pillars */}
+          <SkillsSection skillCategories={skillCategories} />
           {/* --- HIDE SECTIONS --- */}
           <Box sx={{display: 'none'}}>
-
-            {/* Technical Skills & Architecture Pillars */}
-            <SkillsSection skillCategories={skillCategories} />
-
             {/* Live UI Playground & Design Token Studio */}
             {/* <InteractivePlayground /> */}
 

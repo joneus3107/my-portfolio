@@ -41,6 +41,25 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
     }
   };
 
+  const getMastery = (score:number) => {
+    switch (score) {
+      case 1:
+        return 'Familiar';
+
+      case 2:
+        return 'Standard';
+
+      case 3:
+        return 'Strong';
+
+      case 4:
+        return 'Expert';
+    
+      default:
+        return 'Familiar';
+    }
+  }
+
   const currentCategory = skillCategories[selectedCategoryIdx] || skillCategories[0];
 
   return (
@@ -77,7 +96,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
           </Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
-            Deep expertise spanning modern TypeScript, React component ecosystems, state architecture, and sub-100ms web vitals optimization.
+            Bridging solid frontend engineering with bespoke CMS architecture and automated development workflows.
           </Typography>
         </Box>
 
@@ -146,28 +165,18 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
                     <div className="flex items-center justify-between text-xs sm:text-sm mb-1.5">
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-[#2D2D2D]">{skill.name}</span>
-                        {skill.highlight && (
-                          <span className="px-1.5 py-0.2 rounded text-[10px] font-bold uppercase tracking-wider bg-[#F5F2EE] text-[#5C5146] border border-[#EBE7E0]">
-                            Primary
-                          </span>
-                        )}
-                        {skill.tag && (
-                          <span className="px-1.5 py-0.2 rounded text-[10px] font-medium bg-[#FAF8F5] text-[#8C7B6A] border border-[#EBE7E0]">
-                            {skill.tag}
-                          </span>
-                        )}
                       </div>
                       <div className="flex items-center gap-2 font-mono text-xs">
                         <span className="text-[#8C7B6A]">{skill.experience}</span>
-                        <span className="font-bold text-[#2D2D2D]">{skill.level}%</span>
+                        <span className="font-bold text-[#2D2D2D]">{getMastery(skill.mastery)}</span>
                       </div>
                     </div>
 
                     {/* Progress Bar */}
                     <div className="w-full h-2 bg-[#F5F2EE] rounded-full overflow-hidden">
-                      <div
+                      <Box
                         className="h-full bg-[#7E8F7C] rounded-full transition-all duration-500"
-                        style={{ width: `${skill.level}%` }}
+                        sx={{ width: `${(skill.mastery / 4) * 100}%` }}
                       />
                     </div>
                   </div>
@@ -202,11 +211,6 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'space-between',
-                    transition: 'all 0.2s ease',
-                    '&:hover': {
-                      transform: 'translateY(-3px)',
-                      borderColor: '#7E8F7C',
-                    }
                   }}
                 >
                   <div>

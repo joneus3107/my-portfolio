@@ -54,10 +54,8 @@ export interface SkillCategory {
   iconName: string;
   skills: {
     name: string;
-    level: number; // 1-100
+    mastery: 1 | 2 | 3 | 4; // Familiar / Standard / Strong / Expert
     experience: string;
-    highlight?: boolean;
-    tag?: string;
   }[];
 }
 

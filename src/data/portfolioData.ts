@@ -247,61 +247,32 @@ export const certificationsList: Certification[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    category: 'Core Frontend & Languages',
-    description: 'Foundational languages and cutting-edge syntax standards',
+    category: 'Frontend & Web Standards',
+    description: 'Foundational web languages, semantic layouts, and modern component-driven interfaces built for performance and responsive user experiences.',
     iconName: 'Code',
     skills: [
-      { name: 'TypeScript', level: 96, experience: '5+ years', highlight: true, tag: 'Expert' },
-      { name: 'JavaScript (ES2024+)', level: 98, experience: '6+ years', highlight: true, tag: 'Expert' },
-      { name: 'HTML5 & Semantic Web', level: 98, experience: '6+ years', highlight: false, tag: 'Standard' },
-      { name: 'CSS3 / Modern CSS (Grid, Flex, Variables)', level: 95, experience: '6+ years', highlight: true, tag: 'Expert' },
+      { name: 'HTML5 / SCSS', mastery: 3, experience: '6+ years' },
+      { name: 'JavaScript (ES6+)', mastery: 2, experience: '6+ years' },
+      { name: 'React & MUI,', mastery: 1, experience: '6 months' },
     ],
-  },
-  {
-    category: 'Frameworks & Modern UI',
-    description: 'Component-driven application frameworks and renderers',
+  },{
+    category: 'WordPress & CMS',
+    description: 'Architecting bespoke WordPress themes from scratch, structured content modeling, and reliable client-facing data workflows without page-builder bloat.',
     iconName: 'Layout',
     skills: [
-      { name: 'React (Hooks, Context, Suspense, Server Components)', level: 97, experience: '6+ years', highlight: true, tag: 'Core Strength' },
-      { name: 'Material UI (MUI)', level: 95, experience: '5+ years', highlight: true, tag: 'Expert' },
-      { name: 'Next.js (App Router, SSR, ISR)', level: 92, experience: '4+ years', highlight: true, tag: 'Advanced' },
-      { name: 'Tailwind CSS', level: 94, experience: '4+ years', highlight: false, tag: 'Daily Use' },
-      { name: 'Framer Motion & Animations', level: 90, experience: '3+ years', highlight: false, tag: 'Smooth UX' },
+      { name: 'Custom Theme Development', mastery: 3, experience: '6+ years' },
+      { name: 'PHP', mastery: 3, experience: '6+ years' },
     ],
-  },
-  {
-    category: 'State & Architecture',
-    description: 'Scalable state management, caching, and network layers',
-    iconName: 'Layers',
+  },{
+    category: 'Tools & Workflow',
+    description: 'Build automation, version control discipline, and seamless design-to-code collaboration for clean production delivery.',
+    iconName: 'Wrench',
     skills: [
-      { name: 'TanStack Query (React Query)', level: 93, experience: '4+ years', highlight: true, tag: 'Async State' },
-      { name: 'Zustand / Redux Toolkit', level: 92, experience: '5+ years', highlight: false, tag: 'Store Mgmt' },
-      { name: 'REST & GraphQL APIs', level: 90, experience: '5+ years', highlight: false, tag: 'Data Fetching' },
-      { name: 'WebSockets & Real-time Feeds', level: 86, experience: '3+ years', highlight: false, tag: 'Live Sync' },
+      { name: 'Task Runners & Bundlers (Gulp/Vite),', mastery: 2, experience: '6+ years' },
+      { name: 'Git / Version Control', mastery: 2, experience: '3+ years' },
+      { name: 'UI/UX Collaboration (Figma, Adobe)', mastery: 3, experience: '6+ years' },
     ],
-  },
-  {
-    category: 'Quality, Testing & Performance',
-    description: 'Ensuring sub-second speeds, zero defects, and full accessibility',
-    iconName: 'Cpu',
-    skills: [
-      { name: 'Web Performance & Core Web Vitals (LCP, CLS, INP)', level: 95, experience: '5+ years', highlight: true, tag: 'Optimized' },
-      { name: 'WCAG 2.1 AA/AAA Accessibility (a11y)', level: 94, experience: '4+ years', highlight: true, tag: 'Inclusive' },
-      { name: 'Vitest / Jest & React Testing Library', level: 90, experience: '5+ years', highlight: false, tag: 'TDD' },
-      { name: 'Cypress & Playwright E2E', level: 85, experience: '3+ years', highlight: false, tag: 'Automation' },
-    ],
-  },
-  {
-    category: 'Tooling & Design Collaboration',
-    description: 'Developer workflow acceleration and design handoff',
-    iconName: 'Tool',
-    skills: [
-      { name: 'Vite / Webpack / Turbopack', level: 92, experience: '5+ years', highlight: false, tag: 'Bundlers' },
-      { name: 'Git / GitHub CI/CD Actions', level: 91, experience: '6+ years', highlight: false, tag: 'DevOps' },
-      { name: 'Storybook Component Testing', level: 93, experience: '4+ years', highlight: true, tag: 'Design System' },
-      { name: 'Figma to Clean Code Tokens', level: 92, experience: '5+ years', highlight: false, tag: 'Pixel Perfect' },
-    ],
-  },
+  }
 ];
 
 export const testimonials: Testimonial[] = [
@@ -339,24 +310,24 @@ export const testimonials: Testimonial[] = [
 
 export const frontendPillars = [
   {
-    title: 'Minimalist Craftsmanship',
-    description: 'Every pixel, margin, and typography token has purpose. Removing noise so user content and core tasks shine with crystalline clarity.',
-    metric: 'Whitespace & Typographic Harmony',
+    title: 'High-Fidelity Craftsmanship',
+    description: 'Translating design mockups into responsive layouts with high visual accuracy, disciplined spacing, and thoughtful typography.',
+    metric: 'Precision & Visual Harmony',
   },
   {
-    title: 'Peak Performance (Sub-100ms)',
-    description: 'Relentless focus on Core Web Vitals (LCP, INP, CLS), code-splitting, tree-shaking, and optimistic UI transitions that feel instantaneous.',
-    metric: '100% Lighthouse Standard',
+    title: 'Lean & Minimal Dependencies',
+    description: 'Leveraging native web capabilities and lightweight frameworks over heavy libraries to keep bundle sizes minimal and loading fast.',
+    metric: 'Performance-First Mindset',
   },
   {
-    title: 'Accessible by Default (WCAG AAA)',
-    description: 'Full keyboard navigation, semantic ARIA roles, high contrast ratios, and screen-reader friendliness engineered into the foundation.',
-    metric: 'Inclusive to All Users',
+    title: 'Maintainable & Modular Code',
+    description: 'Structuring clean template hierarchies and reusable components that make future enhancements straightforward and sustainable.',
+    metric: 'Structured Architecture',
   },
   {
-    title: 'Maintainable Component Systems',
-    description: 'Strict TypeScript contracts, modular component boundaries, atomic design tokens, and comprehensive automated test suites.',
-    metric: 'Zero Tech Debt Philosophy',
+    title: 'Reliable End-to-End Delivery',
+    description: 'Taking ownership from design handoff to production deployment, maintaining disciplined quality checks to ensure stable releases.',
+    metric: 'Production-Ready Standards',
   },
 ];
 
