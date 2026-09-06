@@ -2,7 +2,7 @@ import { ProfileData, Project, WorkExperience, EducationItem, Certification, Ski
 
 export const initialProfile: ProfileData = {
   name: 'Bình Lê',
-  title: 'Junior Frontend / Fresher Fullstack',
+  title: 'Middle Frontend / Fullstack',
   subtitle: 'Building minimalist, high-performance web experiences & design systems with React, TypeScript & Next.js',
   bio: 'Specialized in bridging the gap between elegant UI/UX design and scalable, resilient frontend architecture. I have 6+ years of experience engineering accessible, responsive web applications with sub-second page loads and zero-latency micro-interactions.',
   avatarUrl: '/images/avatar.jpeg',
@@ -11,8 +11,6 @@ export const initialProfile: ProfileData = {
   phone: '(+84) 86 822 7257',
   availability: 'Available for hire',
   yearsExperience: 6,
-  completedProjects: 30,
-  satisfactionRate: 99.4,
   socials: {
     github: 'https://github.com/joneus3107',
     linkedin: 'https://www.linkedin.com/in/b%C3%ACnh-l%C3%AA-b08512333/',

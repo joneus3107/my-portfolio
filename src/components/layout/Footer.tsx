@@ -134,13 +134,13 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
           }}
         >
           <Typography variant="body2" sx={{ color: '#8C7B6A', fontSize: '0.85rem' }}>
-            © {new Date().getFullYear()} {profile.name}. All rights reserved. Natural Tones Minimalist Portfolio.
+            © {new Date().getFullYear()} {profile.name}. All rights reserved.
           </Typography>
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
             <span className="inline-flex items-center gap-1.5 text-xs text-[#8C7B6A] font-mono">
               <Code2 className="w-3.5 h-3.5 text-[#7E8F7C]" />
-              React + TypeScript + Tailwind + MUI
+              React + TypeScript + MUI
             </span>
 
             {/* Back to top button */}

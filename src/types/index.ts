@@ -87,8 +87,6 @@ export interface ProfileData {
   phone: string;
   availability: 'Available for hire' | 'Open to opportunities' | 'Booked';
   yearsExperience: number;
-  completedProjects: number;
-  satisfactionRate: number;
   socials: {
     github: string;
     linkedin: string;
