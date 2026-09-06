@@ -133,7 +133,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
                 Explore Projects
               </Button>
 
-              <Button
+              {/* <Button
                 variant="outlined"
                 size="large"
                 onClick={onOpenResumeDoc}
@@ -154,7 +154,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
                 }}
               >
                 View Full Resume
-              </Button>
+              </Button> */}
 
               <Button
                 variant="text"

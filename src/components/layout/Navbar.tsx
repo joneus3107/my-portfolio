@@ -213,7 +213,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
             </Tooltip> */}
 
             {/* Resume Button */}
-            <Button
+            {/* <Button
               variant="outlined"
               size="small"
               startIcon={<FileText className="w-4 h-4" />}
@@ -233,7 +233,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
               }}
             >
               Resume
-            </Button>
+            </Button> */}
 
             {/* Quick Contact CTA */}
             <Button
