@@ -190,10 +190,10 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
         <Box sx={{ pt: 2 }}>
           <div className="text-center max-w-xl mx-auto mb-6">
             <Typography variant="h5" sx={{ fontWeight: 600, fontFamily: '"Caveat", cursive, sans-serif', fontSize: '2.1rem', color: '#2D2D2D', mb: 0.5 }}>
-              Core Engineering Philosophy
+              Work Approach
             </Typography>
             <Typography variant="body2" sx={{ color: '#8C7B6A' }}>
-              The foundational principles governing every component, hook, and page I ship.
+              A practical approach focused on code quality, performance, and dependable delivery.
             </Typography>
           </div>
 
