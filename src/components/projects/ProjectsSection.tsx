@@ -18,7 +18,7 @@ interface ProjectsSectionProps {
   projects: Project[];
 }
 
-const categories = ['All', 'Wordpress', 'ReactJS', 'Full-Stack'] as const;
+const categories = ['All', 'WordPress', 'ReactJS', 'Full-Stack'] as const;
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
