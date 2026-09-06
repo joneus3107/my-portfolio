@@ -95,3 +95,9 @@ export interface ProfileData {
   };
   resumePdfUrl?: string;
 }
+
+export interface ContactMethod {
+  name: string;
+  qr: string;
+  url: string
+}

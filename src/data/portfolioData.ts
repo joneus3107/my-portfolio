@@ -1,4 +1,4 @@
-import { ProfileData, Project, WorkExperience, EducationItem, Certification, SkillCategory, Testimonial } from '../types';
+import { ProfileData, Project, WorkExperience, EducationItem, Certification, SkillCategory, Testimonial, ContactMethod } from '../types';
 
 export const initialProfile: ProfileData = {
   name: 'Bình Lê',
@@ -439,3 +439,11 @@ export const frontendPillars = [
     metric: 'Zero Tech Debt Philosophy',
   },
 ];
+
+export const contactMethod: ContactMethod[] = [
+  {
+    name: 'Zalo',
+    qr: '/images/contact/zalo_qr.jpg',
+    url: 'https://zalo.me/0868227257'
+  }
+]

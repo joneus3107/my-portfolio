@@ -3,51 +3,34 @@ import {
   Container,
   Box,
   Typography,
-  Grid,
   Paper,
-  TextField,
-  Button,
-  MenuItem,
   Tooltip,
-  Alert,
-  Snackbar,
-  IconButton
+  IconButton,
+  Grid
 } from '@mui/material';
 import {
   Mail,
   Phone,
   MapPin,
-  Send,
   Copy,
   Check,
-  Calendar,
-  Sparkles,
   Github,
   Linkedin,
-  Clock,
-  CheckCircle2,
   MessageSquare
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
-import { ProfileData } from '../../types';
-import { CoffeeChatModal } from './CoffeeChatModal';
+import { ProfileData, ContactMethod } from '../../types';
 
 interface ContactSectionProps {
   profile: ProfileData;
+  contactMethod: ContactMethod[];
 }
 
-export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
+export const ContactSection: React.FC<ContactSectionProps> = ({ 
+  profile,
+  contactMethod
+}) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
   const [copiedPhone, setCopiedPhone] = useState(false);
-  const [coffeeModalOpen, setCoffeeModalOpen] = useState(false);
-
-  // Form state
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [topic, setTopic] = useState('Full-time Senior Frontend Role');
-  const [message, setMessage] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(profile.email);
@@ -59,28 +42,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
     navigator.clipboard.writeText(profile.phone);
     setCopiedPhone(true);
     setTimeout(() => setCopiedPhone(false), 2000);
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !email.trim() || !message.trim()) return;
-
-    setSubmitted(true);
-    setSnackbarOpen(true);
-
-    confetti({
-      particleCount: 70,
-      spread: 80,
-      origin: { y: 0.7 },
-      colors: ['#18181B', '#10B981', '#6366F1', '#F59E0B'],
-    });
-
-    // Reset after delay or keep confirmation
-    setTimeout(() => {
-      setName('');
-      setEmail('');
-      setMessage('');
-    }, 1500);
   };
 
   return (
@@ -126,48 +87,6 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
           {/* Left Column: Direct Info & Quick Booking */}
           <div className="lg:col-span-5">
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-              
-              {/* Availability Status Card */}
-              <Paper
-                elevation={0}
-                sx={{
-                  p: 3.5,
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: 3.5,
-                  border: '1px solid #EBE7E0',
-                }}
-              >
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#7E8F7C] animate-ping"></span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#7E8F7C] -ml-4.5"></span>
-                  <Typography variant="subtitle2" sx={{ fontWeight: 700, color: '#2D2D2D' }}>
-                    Current Availability Status
-                  </Typography>
-                </div>
-                <Typography variant="body2" sx={{ color: '#5C544B', lineHeight: 1.6, mb: 2 }}>
-                  Actively evaluating full-time Senior / Lead Frontend Developer positions, advisory roles, and high-impact design system contracts.
-                </Typography>
-                <Button
-                  variant="outlined"
-                  size="small"
-                  onClick={() => setCoffeeModalOpen(true)}
-                  startIcon={<Calendar className="w-4 h-4 text-[#7E8F7C]" />}
-                  sx={{
-                    backgroundColor: '#F5F2EE',
-                    borderColor: '#EBE7E0',
-                    color: '#2D2D2D',
-                    fontSize: '0.825rem',
-                    fontWeight: 600,
-                    '&:hover': {
-                      backgroundColor: '#EBE7E0',
-                      borderColor: '#7E8F7C',
-                    }
-                  }}
-                >
-                  Schedule 15-Min Quick Sync
-                </Button>
-              </Paper>
-
               {/* Direct Reach Cards */}
               <div className="space-y-2.5">
                 {/* Email Item with copy */}
@@ -267,109 +186,34 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ profile }) => {
                 </Typography>
               </div>
 
-              {submitted && (
-                <Alert
-                  severity="success"
-                  icon={<CheckCircle2 className="w-5 h-5 text-[#7E8F7C]" />}
-                  sx={{ mb: 3, borderRadius: 2.5, backgroundColor: '#F5F2EE', color: '#2D2D2D', border: '1px solid #EBE7E0' }}
-                >
-                  <strong>Thank you!</strong> Your message has been dispatched successfully. I will get back to you within 24 hours.
-                </Alert>
-              )}
-
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <TextField
-                      fullWidth
-                      required
-                      label="Your Name"
-                      placeholder="e.g. Rachel Adams"
-                      value={name}
-                      onChange={(e) => setName(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <TextField
-                      fullWidth
-                      required
-                      type="email"
-                      label="Your Email"
-                      placeholder="rachel@company.com"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                    />
-                  </div>
-                </div>
-
-                <TextField
-                  fullWidth
-                  select
-                  label="Inquiry Purpose / Opportunity Type"
-                  value={topic}
-                  onChange={(e) => setTopic(e.target.value)}
-                >
-                  <MenuItem value="Full-time Senior Frontend Role">Full-time Senior / Lead Frontend Role</MenuItem>
-                  <MenuItem value="Contract / Design System Engineering">Contract / Design System Engineering</MenuItem>
-                  <MenuItem value="Technical Advisory / Architecture Consulting">Technical Advisory / Architecture Consulting</MenuItem>
-                  <MenuItem value="Freelance Web Application">Freelance Web Application</MenuItem>
-                  <MenuItem value="General Inquiries & Networking">General Inquiries & Networking</MenuItem>
-                </TextField>
-
-                <TextField
-                  fullWidth
-                  required
-                  multiline
-                  rows={4}
-                  label="Project Details or Message"
-                  placeholder="Tell me about your team, tech stack, timeline, or project goals..."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  helperText={`${message.length} characters`}
-                />
-
-                <div className="pt-2">
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    size="large"
-                    endIcon={<Send className="w-4 h-4" />}
-                    sx={{
-                      py: 1.35,
-                      px: 3.5,
-                      fontWeight: 700,
-                      backgroundColor: '#2D2D2D',
-                      color: '#FDFCF9',
-                      boxShadow: '0 8px 20px -4px rgba(45, 45, 45, 0.2)',
-                      '&:hover': {
-                        backgroundColor: '#1A1918',
-                      }
-                    }}
-                  >
-                    Send Message
-                  </Button>
-                </div>
-              </form>
+              <Grid container spacing={2}  sx={{
+                mt: 3,
+                justifyContent: 'center'
+              }}>
+                { contactMethod?.map((item) => (
+                <Grid key={item.name}  size={{ xs: 12, sm: 6, md: 5 }}>
+                  <Box component='a' href={item.url} target='_blank' rel="noopener" sx={{
+                    display: 'block',
+                    transition: 'opacity .3s ease-in-out',
+                    '&:hover': {
+                      opacity: '.8'
+                    }
+                  }}>
+                    <Box component="img" src={item.qr} sx={{
+                      display: 'block',
+                      width: '100%',
+                      aspectRatio: '984 / 1200',
+                      objectFit: 'contain',
+                    }} loading='lazy' alt={`${item.name}_QR`} />
+                  </Box>
+                </Grid>
+                )) }
+              </Grid>
             </Paper>
           </div>
 
         </div>
       </Container>
-
-      {/* Coffee Chat Modal */}
-      <CoffeeChatModal
-        open={coffeeModalOpen}
-        onClose={() => setCoffeeModalOpen(false)}
-        developerName={profile.name}
-      />
-
-      {/* Snackbar notification */}
-      <Snackbar
-        open={snackbarOpen}
-        autoHideDuration={5000}
-        onClose={() => setSnackbarOpen(false)}
-        message="Message dispatched successfully!"
-      />
     </Box>
   );
 };

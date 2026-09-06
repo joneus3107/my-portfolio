@@ -14,6 +14,7 @@ import {
   certificationsList,
   skillCategories,
   testimonials,
+  contactMethod
 } from './data/portfolioData';
 import { ProfileData, Project } from './types';
 
@@ -108,7 +109,7 @@ export default function App() {
           </Box>
 
           {/* Contact Section & Booking */}
-          <ContactSection profile={profile} />
+          <ContactSection profile={profile} contactMethod={contactMethod} />
         </Box>
         {/* --- /HIDE SECTIONS --- */}
 
