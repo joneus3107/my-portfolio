@@ -87,16 +87,16 @@ export default function App() {
           {/* Selected Case Studies & Projects */}
           <ProjectsSection projects={projects} />
 
+          {/* Resume & Work History Timeline */}
+          <ResumeSection
+            profile={profile}
+            experiences={workExperiences}
+            education={educationList}
+            certifications={certificationsList}
+            onOpenDocModal={() => setResumeDocOpen(true)}
+          />
           {/* --- HIDE SECTIONS --- */}
           <Box sx={{display: 'none'}}>
-            {/* Resume & Work History Timeline */}
-            <ResumeSection
-              profile={profile}
-              experiences={workExperiences}
-              education={educationList}
-              certifications={certificationsList}
-              onOpenDocModal={() => setResumeDocOpen(true)}
-            />
 
             {/* Technical Skills & Architecture Pillars */}
             <SkillsSection skillCategories={skillCategories} />

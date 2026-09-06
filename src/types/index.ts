@@ -20,9 +20,8 @@ export interface WorkExperience {
   id: string;
   role: string;
   company: string;
-  companyUrl?: string;
   location: string;
-  type: 'Full-time' | 'Contract' | 'Remote';
+  type: 'Full-time' | 'Hybrid' | 'Remote';
   startDate: string;
   endDate: string;
   current: boolean;
@@ -37,8 +36,6 @@ export interface EducationItem {
   institution: string;
   location: string;
   year: string;
-  honors?: string;
-  relevantCourses?: string[];
 }
 
 export type Education = EducationItem;
@@ -48,7 +45,6 @@ export interface Certification {
   name: string;
   issuer: string;
   date: string;
-  credentialUrl?: string;
   badge?: string;
 }
 

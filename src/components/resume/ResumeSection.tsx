@@ -91,12 +91,12 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
             </Typography>
 
             <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
-              A proven track record of architecting scalable web applications, establishing thoughtful design systems, and driving resilient user interfaces.
+              A track record of building dependable web solutions, translating complex designs into clean, responsive code, and delivering seamless user experiences.
             </Typography>
           </Box>
 
           {/* Quick Action Button */}
-          <Button
+          {/* <Button
             variant="contained"
             size="medium"
             onClick={onOpenDocModal}
@@ -115,7 +115,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
             }}
           >
             Open Formatted CV (PDF / Print)
-          </Button>
+          </Button> */}
         </Box>
 
         {/* Main Grid: Work Experience Timeline on Left, Education & Certs on Right */}
@@ -256,11 +256,6 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                       <span>{edu.location}</span>
                       <span>{edu.year}</span>
                     </div>
-                    {edu.honors && (
-                      <div className="mt-2 text-xs font-medium text-[#465445] bg-[#F0EFEB] px-2.5 py-1 rounded-lg border border-[#D8D2C7]">
-                        {edu.honors}
-                      </div>
-                    )}
                   </div>
                 ))}
               </Paper>
@@ -323,11 +318,11 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                 <div className="flex items-center gap-2 mb-2">
                   <Sparkles className="w-4 h-4 text-amber-300" />
                   <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>
-                    Hiring for a Senior Frontend Role?
+                    Hiring for a Frontend Role?
                   </Typography>
                 </div>
                 <Typography variant="body2" sx={{ color: 'rgba(253, 252, 249, 0.8)', fontSize: '0.825rem', mb: 2.5, lineHeight: 1.5 }}>
-                  I'm currently available for full-time senior engineering opportunities, design system contracts, and technical advisory.
+                  I'm available for full-time roles and client projects. Let’s connect to build high-performance web experiences together.
                 </Typography>
                 <Button
                   fullWidth
