@@ -11,7 +11,7 @@ export const initialProfile: ProfileData = {
   phone: '(+84) 86 822 7257',
   availability: 'Available for hire',
   yearsExperience: 6,
-  completedProjects: 60,
+  completedProjects: 100,
   socials: {
     github: 'https://github.com/joneus3107',
     linkedin: 'https://www.linkedin.com/in/b%C3%ACnh-l%C3%AA-b08512333/',

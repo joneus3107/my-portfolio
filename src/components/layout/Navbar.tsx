@@ -253,7 +253,7 @@ export const Navbar: React.FC<NavbarProps> = ({ profile, onOpenCustomizer, onOpe
                 }
               }}
             >
-              Hire Me
+              Contact me
             </Button>
 
             {/* Mobile Hamburger Toggle */}

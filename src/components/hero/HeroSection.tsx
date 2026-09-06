@@ -189,12 +189,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
                     backgroundColor: '#FFFFFF',
                     fontSize: '0.785rem',
                     fontWeight: 500,
-                    color: '#5C544B',
-                    '&:hover': {
-                      borderColor: '#7E8F7C',
-                      backgroundColor: '#F5F2EE',
-                      color: '#2D2D2D',
-                    },
+                    color: '#5C544B'
                   }}
                 />
               ))}

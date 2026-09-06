@@ -134,7 +134,7 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
           }}
         >
           <Typography variant="body2" sx={{ color: '#8C7B6A', fontSize: '0.85rem' }}>
-            © {new Date().getFullYear()} {profile.name}. All rights reserved.
+            © {new Date().getFullYear()} All rights reserved.
           </Typography>
 
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
