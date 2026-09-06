@@ -21,246 +21,188 @@ export const initialProfile: ProfileData = {
 
 export const sampleProjects: Project[] = [
   {
-    id: 'aurora-design-system',
-    title: 'Aurora UI Design System',
-    tagline: 'Accessible, token-driven component architecture for enterprise React apps',
-    description: 'An open-source, highly customizable React & MUI-based design system featuring 60+ WCAG AAA compliant components, dark/light multi-theming, automated visual regression tests, and full Figma sync.',
-    longDescription: 'Aurora UI is an enterprise-scale component system designed to accelerate product development across 14 distributed engineering squads. Built with TypeScript, Material UI under-the-hood primitives, and Framer Motion for subtle micro-interactions.',
-    category: 'Design Systems',
-    featured: true,
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1000&q=80',
+    id: 'medical-happy',
+    title: 'Medical Happy',
+    tagline: 'Job Search, Member Portal, Custom Forms, Responsive',
+    description: 'Built a responsive, high-performance Japanese medical recruitment platform with job search and doctor registration workflows.',
+    longDescription: 'Developed a responsive medical recruitment platform for Japanese healthcare clients, featuring job search, membership registration, and recruitment workflows for doctors and healthcare professionals. Focused on pixel-perfect implementation, accessibility, and performance optimization.',
+    category: 'Wordpress',
+    practice: false,
+    image: '/images/projects/medical-happy.png',
     mockupType: 'dashboard',
-    tags: ['React 19', 'TypeScript', 'Material UI (MUI)', 'Storybook', 'Tailwind', 'Zero Runtime CSS'],
+    tags: ['WordPress', 'jQuery', 'SlickJS', 'MW WP Form'],
     metrics: [
-      { label: 'Component Reusability', value: '94%' },
-      { label: 'Dev Velocity', value: '+45%' },
-      { label: 'Accessibility', value: '100 / 100' },
-      { label: 'Bundle Footprint', value: '14.2 kB gzip' },
+      { label: 'Responsive Layout', value: '100%' },
+      { label: 'Custom Post Types', value: '3+' },
+      { label: 'Weeks', value: '1.5' }
     ],
-    liveUrl: 'https://example.com/aurora-design-system',
-    githubUrl: 'https://github.com/example/aurora-ui',
-    challenges: [
-      'Maintaining zero-latency rendering while supporting dynamic user-defined theme overrides.',
-      'Achieving strict WCAG 2.1 AAA accessibility compliance across complex multi-state elements like data grids and date range pickers.',
-      'Minimizing tree-shaken bundle size for lightweight consumer imports.',
+    liveUrl: 'https://www.medical-happy.co.jp',
+    scope: [
+      'Developed responsive WordPress themes from design files (Photoshop/XD) with high precision.',
+      'Implemented technical solutions per requirements, including ACF for dynamic content and SlickJS for custom sliders.',
+      'Incorporate customer feedback, refine the interface, optimize page load speeds, and ensure cross-browser compatibility.',
+      'Maintained the platform and delivered iterative feature updates based on client requests.',
     ],
-    solutions: [
-      'Implemented CSS variable tokens paired with Emotion theme provider for atomic zero-re-render color updates.',
-      'Integrated axe-core automated pipelines and ARIA 1.2 compliant keyboard navigation matrices.',
-      'Configured granular sub-path ES exports and Rollup/Vite module chunking.',
-    ],
-    keyFeatures: [
-      '60+ production-ready accessible components',
-      'Dynamic token customization studio with live CSS generator',
-      'Full TypeScript type safety with strict prop IntelliSense',
-      'Built-in motion presets for fluid hover, enter, and exit transitions',
-    ],
-    techArchitecture: [
-      'React 19 & TypeScript for strict type interfaces',
-      '@mui/material & Emotion for resilient foundation layers',
-      'Storybook 8 with interaction and visual tests',
-      'Jest & Testing Library with 98% branch coverage',
-    ],
-    codeSnippet: {
-      filename: 'AuroraButton.tsx',
-      language: 'typescript',
-      code: `import React, { forwardRef } from 'react';
-import { Button as MuiButton, ButtonProps as MuiButtonProps, styled } from '@mui/material';
-
-export interface AuroraButtonProps extends MuiButtonProps {
-  subtleGlow?: boolean;
-  hapticFeedback?: boolean;
-}
-
-const StyledButton = styled(MuiButton)<{ subtleGlow?: boolean }>(({ theme, subtleGlow }) => ({
-  borderRadius: 12,
-  textTransform: 'none',
-  fontWeight: 600,
-  fontSize: '0.925rem',
-  padding: '10px 22px',
-  transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-  boxShadow: subtleGlow ? '0 4px 20px -2px rgba(0,0,0,0.08)' : 'none',
-  '&:hover': {
-    transform: 'translateY(-2px)',
-    boxShadow: '0 8px 24px -4px rgba(0,0,0,0.12)',
+    techStack: [
+      {label: "Core", value: ['WordPress (Custom Theme)', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS', 'JavaScript', 'jQuery']},
+      {label: 'Plugins & Libraries', value: ['Advanced Custom Fields (ACF)', 'MW WP Form', 'SlickJS']},
+      {label: 'Design', value: ['Adobe Photoshop']},
+      {label: 'Tools', value: ['GitHub', 'Gulp/webpack']},
+    ]
   },
-  '&:active': {
-    transform: 'translateY(0px)',
+  {
+    id: 'video-unite',
+    title: 'Video Unite',
+    tagline: 'Animation, Responsive, Contact Form, Recruitment Portal, CSS Animation',
+    description: 'Developed a responsive, modern corporate website for a Japanese video production agency, showcasing their creative portfolio, service plans, and client inquiry flows.',
+    longDescription: 'Implemented a sleek, pixel-perfect corporate website for Video Unite, a Japanese creative video production company. Focused on crafting smooth, artistic scroll animations and fluid micro-interactions to evoke an airy, cinematic feel, while delivering a dynamic video showcase and high-precision responsive layouts across all devices.',
+    category: 'Wordpress',
+    practice: false,
+    image: '/images/projects/video-unite.png',
+    mockupType: 'dashboard',
+    tags: ['WordPress', 'jQuery', 'SlickJS', 'MW WP Form', 'AJAX'],
+    metrics: [
+      { label: 'Animations', value: 'Smooth' },
+      { label: 'Responsive Layout', value: '100%' },
+      { label: 'Custom Post Types', value: '5+' },
+      { label: 'Weeks', value: '2' },
+    ],
+    liveUrl: 'https://videounite.co.jp/',
+    scope: [
+      'Developed responsive WordPress themes from design files (Photoshop/XD) with high precision.',
+      'Implemented technical solutions per requirements, including ACF for dynamic content and SlickJS for custom sliders.',
+      'Maintained the platform and delivered iterative feature updates based on client requests.',
+      'Researching and implementing animations on the website while maintaining a smooth user experience.',
+      'Ensure enhanced security by using Google CAPTCHA.',
+    ],
+    techStack: [
+      {label: "Core", value: ['WordPress (Custom Theme)', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS', 'JavaScript', 'jQuery']},
+      {label: 'Plugins & Libraries', value: ['Advanced Custom Fields (ACF)', 'MW WP Form', 'SlickJS', 'AOS']},
+      {label: 'Design', value: ['Adobe Photoshop']},
+      {label: 'Tools', value: ['GitHub', 'Gulp/webpack']},
+    ]
   },
-}));
-
-export const AuroraButton = forwardRef<HTMLButtonElement, AuroraButtonProps>(
-  ({ children, subtleGlow = true, ...props }, ref) => {
-    return (
-      <StyledButton ref={ref} subtleGlow={subtleGlow} disableElevation {...props}>
-        {children}
-      </StyledButton>
-    );
+  {
+    id: 'bespoke-wedding',
+    title: 'Bespoke Wedding',
+    tagline: 'Mobile-First Wedding Platform, Bespoke Custom Theme, Lightweight UI',
+    description: 'Developed a mobile-first, elegant wedding service website for a Japanese bridal brand, focusing on vanilla JavaScript, lightweight asset optimization, and subtle micro-interactions.',
+    longDescription: 'Implemented a bespoke, mobile-first WordPress theme for a Japanese luxury wedding service. Prioritizing performance and visual elegance, the project was engineered with minimal third-party libraries—relying on Vanilla JavaScript and custom SCSS architecture to ensure fast load times, smooth touch sliders, and delicate fade-in animations across all handheld devices.',
+    category: 'Wordpress',
+    practice: false,
+    image: '/images/projects/bespoke-wedding.png',
+    mockupType: 'dashboard',
+    tags: ['WordPress', 'SwiperJS', 'Javascript'],
+    metrics: [
+      { label: 'Responsive Architecture', value: 'Mobile-First' },
+      { label: 'Zero Library Bloat', value: 'Vanilla JS' },
+      { label: 'Custom Theme', value: '100%' },
+      { label: 'Days', value: '5' },
+    ],
+    liveUrl: 'https://bespoke-wedding.jp/',
+    scope: [
+      'Crafted a touch-friendly, mobile-first interface optimized for seamless smartphone browsing and elegant bridal typography.',
+      'Replaced heavy external libraries with lightweight Vanilla JavaScript solutions to minimize bundle size and boost rendering speed.',
+      'Integrated SwiperJS for fluid gallery carousels combined with subtle CSS/JS scroll-triggered fade animations.',
+      'Architected dynamic wedding package management via Advanced Custom Fields (ACF) and secure consultation booking forms via MW WP Form.',
+    ],
+    techStack: [
+      {label: "Core", value: ['WordPress (Custom Theme)', 'PHP', 'Vanilla JavaScript']},
+      {label: 'Plugins & Libraries', value: ['Advanced Custom Fields (ACF)', 'MW WP Form', 'SwiperJS']},
+      {label: 'Design', value: ['Adobe Illutrator']},
+      {label: 'Tools', value: ['GitHub', 'Gulp/webpack']},
+    ]
+  },
+  {
+    id: 'netflix-ui',
+    title: 'Netflix UI',
+    tagline: 'Netflix UI, API Data, Real-time Search',
+    description: 'Built a dynamic, responsive Netflix-inspired streaming UI using React 19 and Material UI, featuring real-time movie search, custom hooks, and dynamic data fetching from TMDB API.',
+    longDescription: 'Developed a responsive movie discovery web application replicating the Netflix streaming interface to explore modern React 19 patterns. The platform integrates with The Movie Database (TMDB) API via Axios, featuring real-time movie search, category sliders with SwiperJS, and a highly modular component architecture styled with Material UI.',
+    category: 'ReactJS',
+    practice: true,
+    image: '/images/projects/netflix-ui.png',
+    mockupType: 'dashboard',
+    tags: ['ReactJS', 'MUI', 'API'],
+    metrics: [
+      { label: 'MUI Component System' , value: 'Reusable' },
+      { label: 'RESTful Integration', value: 'TMDB API' },
+      { label: 'Days', value: '3' },
+    ],
+    liveUrl: 'https://fake-neflix-ui.netlify.app/user-list',
+    scope: [
+      'Researched modern React patterns and independently structured the application architecture.',
+      'Constructed a modular, highly reusable component system styled with Material UI (MUI).',
+      'Integrated TMDB REST API via Axios for real-time data fetching, trending lists, and movie details.',
+      'Implemented dynamic search query filtering and responsive touch sliders using SwiperJS.',
+    ],
+    techStack: [
+      {label: "Core", value: ['ReactJS 19', 'JavaScript (ES6+)']},
+      {label: 'Libraries', value: ['SwiperJS', 'MUI', 'Axios']},
+      {label: 'Tools', value: ['GitHub', 'Vite', 'Netlify']},
+    ]
+  },
+  {
+    id: 'casa-sallazzo',
+    title: 'Casa Sallazzo',
+    tagline: 'Architecture & Housing, Contact form, Blog',
+    description: 'Developed a fully responsive layout powered by UIkit to eliminate redundant libraries, with streamlined dynamic content management via ACF.',
+    longDescription: 'Casa Sollazzo is a custom WordPress website that I developed from scratch for a Japanese client in the housing and real estate industry. The website showcases custom-built homes, construction projects, company services, and customer inquiries through a clean, modern, and responsive interface.',
+    category: 'Wordpress',
+    practice: false,
+    image: '/images/projects/casa-sallazzo.png',
+    mockupType: 'dashboard',
+    tags: ['WordPress', 'UIkit', 'Github', 'Contact Form 7', 'ACF'],
+    metrics: [
+      { label: 'Responsive Layout', value: '100%' },
+      { label: 'Custom Post Types', value: '3+' },
+      { label: 'Weeks', value: '2' },
+    ],
+    liveUrl: 'https://www.casa-sollazzo.jp/',
+    scope: [
+      'Developed a fully custom WordPress theme from scratch based on the provided design specifications.',
+      'Created reusable templates and flexible ACF components to simplify client content management.',
+      'Optimized website performance, page loading speed, and core SEO fundamentals.',
+      'Ensured cross-browser compatibility and maintained clean code quality throughout the project.',
+    ],
+    techStack: [
+      {label: "Core", value: ['WordPress', 'Vanilla Javascript', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS']},
+      {label: 'Plugins & Libraries', value: ['UIkit', 'Contact Form 7']},
+      {label: 'Design', value: ['Adobe XD']},
+      {label: 'Tools', value: ['GitHub', 'Gulp']},
+    ]
+  },
+  {
+    id: 'les-quatre-saisons',
+    title: 'Les Quatre Saisons',
+    tagline: 'Luxury Wedding & Banquet, Smooth animation, Contact Form',
+    description: 'Architected and delivered an end-to-end luxury party and wedding venue website for a Japanese client, combining custom WordPress development with smooth GSAP animations and UIkit.',
+    longDescription: 'Led the complete end-to-end development of a bespoke website for Les Quatre Saisons, an upscale French-style party and wedding venue in Japan. Given full autonomy over technical decisions, I implemented a lightweight custom WordPress theme using UIkit for responsive layout structure and GSAP for subtle, elegant micro-animations. The project prioritized atmospheric storytelling, seamless touch-enabled gallery exploration, and a friction-free party reservation flow.',
+    category: 'Wordpress',
+    practice: false,
+    image: '/images/projects/les-quatre-saisons.png',
+    mockupType: 'dashboard',
+    tags: ['WordPress', 'GSAP', 'ACF', 'UIkit', 'SwiperJS'],
+    metrics: [
+      { label: 'Smooth Animations', value: 'GSAP' },
+      { label: 'Responsive Layout', value: '100%' },
+      { label: 'Custom Post Types', value: '3+' },
+      { label: 'Weeks', value: '2' },
+    ],
+    liveUrl: 'https://l-qs-party.com/',
+    scope: [
+      'Selected and integrated the optimal stack (UIkit, GSAP, SwiperJS) to achieve a modern luxury look while preventing library bloat.',
+      "Engineered high-performance scroll-triggered animations and delicate transitions to elevate the venue's visual storytelling.",
+      'Translated Figma designs into a pixel-perfect, custom WordPress theme fully optimized across mobile, tablet, and desktop viewports.',
+      'Configured ACF for effortless party plan management and integrated Contact Form 7 with custom styling and validation rules.',
+    ],
+    techStack: [
+      {label: "Core", value: ['WordPress', 'Vanilla Javascript', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS']},
+      {label: 'Plugins & Libraries', value: ['UIkit', 'Contact Form 7', 'GSAP', 'SwiperJS']},
+      {label: 'Design', value: ['Figma']},
+      {label: 'Tools', value: ['GitHub', 'Gulp' ]},
+    ]
   }
-);`,
-    },
-  },
-  {
-    id: 'pulse-analytics-dashboard',
-    title: 'Pulse Financial SaaS Dashboard',
-    tagline: 'Real-time financial telemetry with sub-100ms charting & AI forecasting',
-    description: 'A minimalist white-themed fintech analytics dashboard delivering instant insight into $40M+ quarterly transaction streams. Features smooth interactive charts, optimistic mutations, and custom data filters.',
-    longDescription: 'Engineered for high-volume traders and finance leaders needing clarity without visual clutter. Utilizes server components, client-side caching with React Query, and SVG/Canvas micro-charts.',
-    category: 'React & Next.js',
-    featured: true,
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=80',
-    mockupType: 'browser',
-    tags: ['Next.js 15', 'TypeScript', 'Tailwind CSS', 'Recharts', 'TanStack Query', 'Zustand'],
-    metrics: [
-      { label: 'Lighthouse Score', value: '99 / 100' },
-      { label: 'Time to Interactive', value: '0.42s' },
-      { label: 'Data Throughput', value: '50k ops/sec' },
-      { label: 'User Retention', value: '+38%' },
-    ],
-    liveUrl: 'https://example.com/pulse-analytics',
-    githubUrl: 'https://github.com/example/pulse-fintech',
-    challenges: [
-      'Rendering tens of thousands of live telemetry points without degrading 60fps scrolling.',
-      'Preserving clean minimalist white aesthetics while providing rich multidimensional data visualization.',
-      'Complex filter and date-range URL state synchronisation.',
-    ],
-    solutions: [
-      'Implemented WebGL and canvas-backed virtualized data windowing for heavy time-series data.',
-      'Crafted a high-contrast monochromatic color schema with deliberate semantic accents for positive/negative delta indicators.',
-      'Engineered nuqs URL state management for shareable, reproducible dashboard views.',
-    ],
-    keyFeatures: [
-      'Live streaming WebSocket telemetry feed with auto-reconnection',
-      'Customizable drag-and-drop analytics widget grid',
-      'One-click PDF & CSV report generation with styled export renderer',
-      'AI anomaly detection notification cards',
-    ],
-    techArchitecture: [
-      'Next.js 15 App Router with streaming SSR',
-      'TanStack Table & Recharts for virtualized tabular views',
-      'MUI Joy / Material UI modal dialogs and inputs',
-      'Web Workers for client-side regression and aggregation calculations',
-    ],
-  },
-  {
-    id: 'flowstate-collaborative-canvas',
-    title: 'FlowState Interactive Canvas',
-    tagline: 'Infinite collaborative whiteboard with real-time vector path rendering',
-    description: 'A high-performance infinite canvas web application for wireframing user flows, mind maps, and interface mockups with real-time multiplayer cursor synchronization.',
-    longDescription: 'Created to replace clunky whiteboards with a featherlight, distraction-free creative space. Features pressure-sensitive pen input, smart snapping guides, and effortless component exportation to React JSX.',
-    category: 'Tools & Apps',
-    featured: true,
-    image: 'https://images.unsplash.com/photo-1581291518655-9523c932edcf?auto=format&fit=crop&w=1000&q=80',
-    mockupType: 'browser',
-    tags: ['React', 'HTML5 Canvas', 'TypeScript', 'WebSockets', 'MUI Theme', 'Tailwind'],
-    metrics: [
-      { label: 'Frame Rate', value: '120 fps' },
-      { label: 'Latency', value: '< 18ms' },
-      { label: 'Monthly Active', value: '25k+' },
-      { label: 'GitHub Stars', value: '1.8k' },
-    ],
-    liveUrl: 'https://example.com/flowstate-canvas',
-    githubUrl: 'https://github.com/example/flowstate',
-    challenges: [
-      'Handling infinite panning and multi-level zooming without clipping or precision degradation.',
-      'Conflict-free multi-user canvas shape updates.',
-    ],
-    solutions: [
-      'Built a custom quadtree spatial indexing engine for fast viewport culling.',
-      'Employed CRDT (Yjs) protocols for seamless peer-to-peer data convergence.',
-    ],
-    keyFeatures: [
-      'Infinite zoomable 2D canvas with smooth inertia physics',
-      'Live multiplayer presence with color-coded cursors',
-      'Export directly to SVG, PNG, and clean React component code',
-      'Minimalist distraction-free Zen mode interface',
-    ],
-    techArchitecture: [
-      'React 19 with custom canvas hooks',
-      'HTML5 Canvas 2D Context + Matrix transformations',
-      'MUI popovers and floating action bars',
-      'Zustand with history undo/redo stack',
-    ],
-  },
-  {
-    id: 'lumina-e-commerce',
-    title: 'Lumina Minimalist Commerce',
-    tagline: 'Ultra-fast headless luxury storefront with sub-second checkout',
-    description: 'A headless e-commerce frontend built for a modern lifestyle brand. Features fluid page transitions, instant product search with fuzzy matching, and interactive 3D product previews.',
-    longDescription: 'Focused on elevating conversion rates through friction-free user journeys, crisp typography, and serene white-space layouts that put product imagery in the spotlight.',
-    category: 'React & Next.js',
-    featured: false,
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1000&q=80',
-    mockupType: 'mobile',
-    tags: ['Next.js', 'React', 'Shopify Storefront API', 'Framer Motion', 'MUI', 'Tailwind CSS'],
-    metrics: [
-      { label: 'Conversion Rate', value: '+3.8%' },
-      { label: 'Mobile Bounce Rate', value: '-22%' },
-      { label: 'Page Load Speed', value: '0.38s' },
-    ],
-    liveUrl: 'https://example.com/lumina-store',
-    githubUrl: 'https://github.com/example/lumina-store',
-    challenges: [
-      'Ensuring seamless client-side page transitions without layout shifts.',
-      'Optimizing multi-resolution responsive product photography.',
-    ],
-    solutions: [
-      'Next/Image with custom blurhash placeholding and modern AVIF/WebP formats.',
-      'Shared layout animations using Framer Motion layoutId props.',
-    ],
-    keyFeatures: [
-      'Instant slide-over cart with real-time stock validations',
-      'Curated lookbook with clickable product hotspots',
-      'Predictive search bar with keyboard-only navigation',
-    ],
-    techArchitecture: ['Next.js App Router', 'GraphQL Storefront API', 'Stripe Elements', 'MUI Drawer and Badges'],
-  },
-  {
-    id: 'zenith-markdown-studio',
-    title: 'Zenith Markdown & Documentation Studio',
-    tagline: 'Distraction-free documentation editor with live React component preview',
-    description: 'A sleek browser-based technical documentation editor with bidirectional markdown-to-React compilation, live AST tree inspector, and instant static site publishing.',
-    longDescription: 'Created to streamline engineering documentation workflows. Integrates syntax highlighting, LaTeX math formula rendering, and auto-generated tables of contents.',
-    category: 'Tools & Apps',
-    featured: false,
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=1000&q=80',
-    mockupType: 'browser',
-    tags: ['React', 'TypeScript', 'Monaco Editor', 'Unified / Remark', 'MUI Icons'],
-    metrics: [
-      { label: 'Typing Latency', value: '4ms' },
-      { label: 'Doc Generation', value: '< 1s' },
-      { label: 'Active Developers', value: '12k' },
-    ],
-    liveUrl: 'https://example.com/zenith-editor',
-    githubUrl: 'https://github.com/example/zenith-studio',
-    challenges: ['Maintaining synchronous scrolling between Monaco code editor and rendered HTML preview.'],
-    solutions: ['Line-based DOM offset observer algorithm with smooth easing interpolations.'],
-    keyFeatures: ['Dual split-pane with synchronised scroll', 'Live MDX JSX execution', 'Export to PDF, HTML, and GitHub Wiki'],
-    techArchitecture: ['React 19', 'Monaco Editor API', 'Unified & Rehype plugins', 'MUI Split Panes'],
-  },
-  {
-    id: 'prism-ai-agent-interface',
-    title: 'Prism AI Workspace & Prompt Canvas',
-    tagline: 'Clean conversational interface for multi-model AI agent orchestration',
-    description: 'An AI interface featuring streaming markdown responses, interactive artifact code sandboxes, branchable prompt trees, and token consumption analytics.',
-    longDescription: 'Designed around human-in-the-loop AI interaction principles, offering clean bubble layouts, code execution sandboxes, and exportable chat logs.',
-    category: 'Full-Stack',
-    featured: false,
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80',
-    mockupType: 'browser',
-    tags: ['React', 'TypeScript', 'Gemini API', 'Express', 'Tailwind', 'MUI Dialogs'],
-    metrics: [
-      { label: 'Stream FPS', value: '60 fps' },
-      { label: 'User Satisfaction', value: '4.9 / 5.0' },
-      { label: 'Daily Prompts', value: '85k+' },
-    ],
-    liveUrl: 'https://example.com/prism-ai',
-    githubUrl: 'https://github.com/example/prism-ai',
-    challenges: ['Smoothly handling fast chunk streams without causing UI jitter or scroll jumps.'],
-    solutions: ['Throttled requestAnimationFrame rendering buffer and smart sticky auto-scroll detector.'],
-    keyFeatures: ['Live streaming token renderer', 'Interactive inline sandbox for HTML/React snippets', 'Prompt history timeline'],
-    techArchitecture: ['React 19', 'Gemini 2.5 SDK', 'MUI Snackbars & Tabs', 'Tailwind Typography'],
-  },
 ];
 
 export const workExperiences: WorkExperience[] = [
@@ -346,7 +288,7 @@ export const educationList: EducationItem[] = [
     institution: 'University of Texas at Austin',
     location: 'Austin, TX',
     year: '2015 - 2019',
-    honors: 'Magna Cum Laude • Dean’s Honor List (4 semesters)',
+    honors: 'Magna Cum Laude, Dean’s Honor List (4 semesters)',
     relevantCourses: [
       'User Interface Design & Usability Testing',
       'Advanced Web Engineering & Distributed Systems',
