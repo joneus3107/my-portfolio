@@ -4,7 +4,7 @@ export interface Project {
   tagline: string;
   description: string;
   longDescription?: string;
-  category: 'Wordpress' | 'ReactJS' | 'Full-Stack';
+  category: 'WordPress' | 'ReactJS' | 'Full-Stack';
   practice: boolean;
   image: string;
   mockupType?: 'browser' | 'mobile' | 'dashboard';
