@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, CardContent, Typography, Box, Button, Chip, Tooltip } from '@mui/material';
-import { ExternalLink, Github, Sparkles, ArrowUpRight, Zap, Code2 } from 'lucide-react';
+import { ExternalLink, Github, Book, ArrowUpRight, Zap, Code2 } from 'lucide-react';
 import { Project } from '../../types';
 
 interface ProjectCardProps {
@@ -67,9 +67,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
           <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/95 backdrop-blur-md text-[#5C5146] border border-[#EBE7E0] shadow-xs">
             {project.category}
           </span>
-          {project.featured && (
+          {project.practice && (
             <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-[#7E8F7C] text-white shadow-xs flex items-center gap-1">
-              <Sparkles className="w-3 h-3 text-amber-200" /> Featured
+              <Book className="w-3 h-3 text-amber-200" /> SIDE PROJECT
             </span>
           )}
         </Box>
@@ -77,7 +77,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
         {/* Hover overlay hint */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
           <span className="text-white text-xs font-semibold flex items-center gap-1">
-            View case study & architecture <ArrowUpRight className="w-3.5 h-3.5" />
+            View detail <ArrowUpRight className="w-3.5 h-3.5" />
           </span>
         </div>
       </Box>

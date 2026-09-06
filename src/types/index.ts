@@ -5,7 +5,7 @@ export interface Project {
   description: string;
   longDescription?: string;
   category: 'Wordpress' | 'ReactJS' | 'Full-Stack';
-  featured: boolean;
+  practice: boolean;
   image: string;
   mockupType?: 'browser' | 'mobile' | 'dashboard';
   tags: string[];

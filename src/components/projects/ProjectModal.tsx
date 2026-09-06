@@ -26,7 +26,7 @@ import {
   Monitor,
   Smartphone,
   Tablet,
-  Sparkles,
+  Book,
   Zap
 } from 'lucide-react';
 import { Project } from '../../types';
@@ -82,9 +82,9 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, open, onClo
           <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-zinc-100 text-zinc-800 border border-zinc-200">
             {project.category}
           </span>
-          {project.featured && (
+          {project.practice && (
             <span className="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200 flex items-center gap-1">
-              <Sparkles className="w-3 h-3" /> Featured Case Study
+              <Book className="w-3 h-3" /> SIDE PROJECT
             </span>
           )}
         </div>

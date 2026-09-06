@@ -69,11 +69,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
               fontFamily: '"Caveat", cursive, sans-serif',
             }}
           >
-            Projects & Case Studies
+            Projects
           </Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
-            A collection of production-ready websites and web apps, focusing on clean architecture, performance, and seamless user experiences.
+            A handpicked selection from my broader body of work, showcasing client websites and modern web applications built with clean code and precision.
           </Typography>
         </Box>
 
@@ -124,7 +124,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             <TextField
               size="small"
               fullWidth
-              placeholder="Search by tech (e.g. Next.js, MUI)..."
+              placeholder="ex: WordPress, ReactJS..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               slotProps={{
