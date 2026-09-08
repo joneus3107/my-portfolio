@@ -25,7 +25,6 @@ import { HeroSection } from './components/hero/HeroSection';
 import { ProjectsSection } from './components/projects/ProjectsSection';
 import { ResumeSection } from './components/resume/ResumeSection';
 import { SkillsSection } from './components/skills/SkillsSection';
-import { InteractivePlayground } from './components/playground/InteractivePlayground';
 import { TestimonialsSection } from './components/testimonials/TestimonialsSection';
 import { ContactSection } from './components/contact/ContactSection';
 
@@ -79,33 +78,29 @@ export default function App() {
         {/* Main Content Sections */}
         <Box component="main" sx={{ flexGrow: 1 }}>
           {/* Hero Section with interactive live metrics & philosophy */}
-          <Box component='article'>
-            <HeroSection
-              profile={profile}
-              onOpenResumeDoc={() => setResumeDocOpen(true)}
-            />
-            {/* Selected Case Studies & Projects */}
-            <ProjectsSection projects={projects} />
-            {/* Resume & Work History Timeline */}
-            <ResumeSection
-              profile={profile}
-              experiences={workExperiences}
-              education={educationList}
-              certifications={certificationsList}
-              onOpenDocModal={() => setResumeDocOpen(true)}
-            />
-            {/* Technical Skills & Architecture Pillars */}
-            <SkillsSection skillCategories={skillCategories} />
-            {/* --- HIDE SECTIONS --- */}
-            {/* Live UI Playground & Design Token Studio */}
-            {/* <InteractivePlayground /> */}
-            {/* Peer & Leader Testimonials */}
-            {/* <TestimonialsSection testimonials={testimonials} /> */}
-            {/* Contact Section & Booking */}
-            <ContactSection profile={profile} contactMethod={contactMethod} />
-          </Box>
+          <HeroSection
+            profile={profile}
+            onOpenResumeDoc={() => setResumeDocOpen(true)}
+          />
+          {/* Selected Case Studies & Projects */}
+          <ProjectsSection projects={projects} />
+          {/* Resume & Work History Timeline */}
+          <ResumeSection
+            profile={profile}
+            experiences={workExperiences}
+            education={educationList}
+            certifications={certificationsList}
+            onOpenDocModal={() => setResumeDocOpen(true)}
+          />
+          {/* Technical Skills & Architecture Pillars */}
+          <SkillsSection skillCategories={skillCategories} />
+          {/* --- HIDE SECTIONS --- */}
+          {/* Peer & Leader Testimonials */}
+          {/* <TestimonialsSection testimonials={testimonials} /> */}
+          {/* --- /HIDE SECTIONS --- */}
+          {/* Contact Section & Booking */}
+          <ContactSection profile={profile} contactMethod={contactMethod} />
         </Box>
-        {/* --- /HIDE SECTIONS --- */}
 
         {/* Clean Footer */}
         <Footer profile={profile} />
