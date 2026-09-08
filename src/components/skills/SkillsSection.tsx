@@ -23,6 +23,7 @@ import {
 } from 'lucide-react';
 import { SkillCategory } from '../../types';
 import { frontendPillars } from '../../data/portfolioData';
+import SectionTag from '../common/SectionTag';
 
 interface SkillsSectionProps {
   skillCategories: SkillCategory[];
@@ -76,24 +77,9 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
         
         {/* Section Header */}
         <Box sx={{ maxWidth: 720, mb: 7 }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F2EE] border border-[#EBE7E0] text-[11px] font-bold uppercase tracking-widest text-[#8C7B6A] mb-3">
-            <Cpu className="w-3.5 h-3.5 text-[#7E8F7C]" />
-            <span>Core Competencies & Tooling</span>
-          </div>
+          <SectionTag icon={<Cpu className="w-3.5 h-3.5 text-[#7E8F7C]" />}>Core Competencies & Tooling</SectionTag>
 
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2.5rem', sm: '3.4rem' },
-              fontWeight: 600,
-              color: '#2D2D2D',
-              letterSpacing: '0.01em',
-              mb: 1.5,
-              fontFamily: '"Caveat", cursive, sans-serif',
-            }}
-          >
-            Technical Mastery & Tooling.
-          </Typography>
+          <Typography variant="h2" >Technical Mastery & Tooling.</Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
             Bridging solid frontend engineering with bespoke CMS architecture and automated development workflows.

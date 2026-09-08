@@ -26,19 +26,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({ testim
             <span>Peer Endorsements & Recommendations</span>
           </div>
 
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2.5rem', sm: '3.4rem' },
-              fontWeight: 600,
-              color: '#2D2D2D',
-              letterSpacing: '0.01em',
-              mb: 1.5,
-              fontFamily: '"Caveat", cursive, sans-serif',
-            }}
-          >
-            What Leaders & Peers Say.
-          </Typography>
+          <Typography variant="h2" >What Leaders & Peers Say.</Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
             Feedback from engineering leaders, product designers, and staff engineers I've collaborated with.

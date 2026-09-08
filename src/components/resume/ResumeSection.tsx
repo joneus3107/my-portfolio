@@ -25,6 +25,7 @@ import {
   ChevronUp
 } from 'lucide-react';
 import { ProfileData, WorkExperience, EducationItem, Certification } from '../../types';
+import SectionTag from '../common/SectionTag';
 
 interface ResumeSectionProps {
   profile: ProfileData;
@@ -71,24 +72,9 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
           }}
         >
           <Box sx={{ maxWidth: 700 }}>
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F2EE] border border-[#EBE7E0] text-[11px] font-bold uppercase tracking-widest text-[#8C7B6A] mb-3">
-              <Briefcase className="w-3.5 h-3.5 text-[#7E8F7C]" />
-              <span>Career Trajectory & Experience</span>
-            </div>
+            <SectionTag icon={<Briefcase className="w-3.5 h-3.5 text-[#7E8F7C]" />}>Career Trajectory & Experience</SectionTag>
 
-            <Typography
-              variant="h2"
-              sx={{
-                fontSize: { xs: '2.5rem', sm: '3.4rem' },
-                fontWeight: 600,
-                color: '#2D2D2D',
-                letterSpacing: '0.01em',
-                mb: 1.5,
-                fontFamily: '"Caveat", cursive, sans-serif',
-              }}
-            >
-              Work Experience & Background.
-            </Typography>
+            <Typography variant="h2" >Work Experience & Background.</Typography>
 
             <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
               A track record of building dependable web solutions, translating complex designs into clean, responsive code, and delivering seamless user experiences.

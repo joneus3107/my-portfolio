@@ -74,28 +74,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
               variant="h1"
               sx={{
                 fontSize: { xs: '3rem', sm: '4.25rem', md: '5.25rem' },
-                fontWeight: 600,
                 color: '#2D2D2D',
-                letterSpacing: '0.01em',
                 lineHeight: 1.25,
                 mb: 3,
-                fontFamily: '"Caveat", cursive, sans-serif',
               }}
             >
-              Making <span className="text-[#7E8F7C]">Complex Things</span><br/>
-              Feel <span className="text-[#7E8F7C]">Simple</span>.
+              Making <Typography variant='inherit' component='span' className='color-secondary-main'>Complex Things</Typography>{' '}<br/>
+              Feel <Typography variant='inherit' component='span' className='color-secondary-main'>Simple</Typography>.
             </Typography>
 
             {/* Subtitle */}
             <Typography
               variant="subtitle1"
               sx={{
-                fontSize: { xs: '1.05rem', sm: '1.2rem' },
-                color: '#5C544B',
-                lineHeight: 1.68,
-                maxWidth: 720,
+                fontSize: { sm: '1.2rem' },
+                fontWeight: 400,
+                lineHeight: 1.7,
+                maxWidth: 770,
                 mx: 'auto',
                 mb: 4.5,
+                letterSpacing: '.02em'
               }}
             >
               Hi, I'm <strong className="text-[#2D2D2D] font-bold">{profile.name}</strong>. A {profile.title} with many years of experience building responsive, performant and pixel-perfect websites. I enjoy turning complex requirements into simple, reliable and thoughtful user experiences.
@@ -226,10 +224,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
                 }}
               >
                 <Typography
-                  variant="h3"
                   sx={{
                     fontWeight: 700,
                     fontSize: { xs: '1.8rem', md: '2.2rem' },
+                    lineHeight: 1.22,
                     color: '#2D2D2D',
                     letterSpacing: '-0.03em',
                     mb: 0.5,

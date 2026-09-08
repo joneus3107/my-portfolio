@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, CardContent, Typography, Box, Button, Chip, Tooltip } from '@mui/material';
 import { ExternalLink, Github, Book, ArrowUpRight, Zap, Code2 } from 'lucide-react';
 import { Project } from '../../types';
+// CONSTANTS
+import { FONT_CAVEAT } from '@/src/theme/muiTheme';
 
 interface ProjectCardProps {
   project: Project;
@@ -92,14 +94,13 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
           >
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 1, mb: 1 }}>
               <Typography
-                variant="h6"
+                component='h3'
                 sx={{
                   fontWeight: 600,
                   fontSize: '1.75rem',
-                  fontFamily: '"Caveat", cursive, sans-serif',
-                  color: '#2D2D2D',
+                  fontFamily: FONT_CAVEAT,
+                  color: 'theme.pallete.main',
                   lineHeight: 1.25,
-                  '&:hover': { color: '#7E8F7C' },
                 }}
               >
                 {project.title}

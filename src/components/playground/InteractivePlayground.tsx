@@ -124,19 +124,7 @@ export const customThemeTokens = {
             <span>Interactive Frontend Component Lab</span>
           </div>
 
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2.5rem', sm: '3.4rem' },
-              fontWeight: 600,
-              color: '#2D2D2D',
-              letterSpacing: '0.01em',
-              mb: 1.5,
-              fontFamily: '"Caveat", cursive, sans-serif',
-            }}
-          >
-            Live Design Token & State Sandbox.
-          </Typography>
+          <Typography variant="h2" >Live Design Token & State Sandbox.</Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
             Adjust design tokens and micro-interaction parameters below in real-time. Witness atomic re-renders with zero performance overhead.

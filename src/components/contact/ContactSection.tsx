@@ -19,6 +19,7 @@ import {
   MessageSquare
 } from 'lucide-react';
 import { ProfileData, ContactMethod } from '../../types';
+import SectionTag from '../common/SectionTag';
 
 interface ContactSectionProps {
   profile: ProfileData;
@@ -57,24 +58,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ maxWidth: 720, mb: 7 }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F2EE] border border-[#EBE7E0] text-[11px] font-bold uppercase tracking-widest text-[#8C7B6A] mb-3">
-            <Mail className="w-3.5 h-3.5 text-[#7E8F7C]" />
-            <span>Initiate Contact</span>
-          </div>
+          <SectionTag icon={<Mail className="w-3.5 h-3.5 text-[#7E8F7C]" />}>Initiate Contact</SectionTag>
 
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2.5rem', sm: '3.4rem' },
-              fontWeight: 600,
-              color: '#2D2D2D',
-              letterSpacing: '0.01em',
-              mb: 1.5,
-              fontFamily: '"Caveat", cursive, sans-serif',
-            }}
-          >
-            Let's Build Something Exceptional.
-          </Typography>
+          <Typography variant="h2" >Let's Build Something Exceptional.</Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
             Whether you have an open frontend engineering position, need design system leadership, or wish to explore a contract project, I'd love to hear from you.

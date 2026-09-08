@@ -13,6 +13,7 @@ import { Search, Sparkles, Filter, Code2, FolderGit2 } from 'lucide-react';
 import { Project } from '../../types';
 import { ProjectCard } from './ProjectCard';
 import { ProjectModal } from './ProjectModal';
+import SectionTag from '../common/SectionTag';
 
 interface ProjectsSectionProps {
   projects: Project[];
@@ -53,24 +54,9 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
       <Container maxWidth="lg">
         {/* Section Header */}
         <Box sx={{ maxWidth: 720, mb: 6 }}>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F5F2EE] border border-[#EBE7E0] text-[11px] font-bold uppercase tracking-widest text-[#8C7B6A] mb-3">
-            <FolderGit2 className="w-3.5 h-3.5 text-[#7E8F7C]" />
-            <span>Featured Portfolio Works</span>
-          </div>
+          <SectionTag icon={<FolderGit2 className="w-3.5 h-3.5 text-[#7E8F7C]" />}>Featured Portfolio Works</SectionTag>
 
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2.5rem', sm: '3.4rem' },
-              fontWeight: 600,
-              color: '#2D2D2D',
-              letterSpacing: '0.01em',
-              mb: 1.5,
-              fontFamily: '"Caveat", cursive, sans-serif',
-            }}
-          >
-            Projects
-          </Typography>
+          <Typography variant="h2">Projects</Typography>
 
           <Typography variant="body1" sx={{ color: '#5C544B', fontSize: '1.05rem', lineHeight: 1.65 }}>
             A handpicked selection from my broader body of work, showcasing client websites and modern web applications built with clean code and precision.

@@ -1,5 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 
+export const FONT_CAVEAT = '"Caveat", cursive, sans-serif'
+export const FONT_NEWSREADER = '"Newsreader", Georgia, "Playfair Display", serif'
+export const FONT_PLUS_JAKARTA = '"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+
 export const createAppTheme = () => {
   return createTheme({
     palette: {
@@ -28,21 +32,27 @@ export const createAppTheme = () => {
       divider: '#EBE7E0',
     },
     typography: {
-      fontFamily: '"Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+      fontFamily: FONT_PLUS_JAKARTA,
       h1: {
-        fontFamily: '"Caveat", cursive, sans-serif',
+        fontFamily: FONT_CAVEAT,
         fontWeight: 600,
         letterSpacing: '0.01em',
         lineHeight: 1.15,
       },
       h2: {
-        fontFamily: '"Caveat", cursive, sans-serif',
+        fontSize: '2.5rem',
+        fontFamily: FONT_CAVEAT,
         fontWeight: 600,
         letterSpacing: '0.01em',
         lineHeight: 1.2,
+        color: '#2D2D2D',
+        marginBottom: '1.5rem',
+        '@media (min-width:600px)': {
+          fontSize: '3.4rem',
+        },
       },
       h3: {
-        fontFamily: '"Newsreader", Georgia, "Playfair Display", serif',
+        fontFamily: FONT_NEWSREADER,
         fontWeight: 600,
         letterSpacing: '-0.02em',
         lineHeight: 1.22,
@@ -64,6 +74,7 @@ export const createAppTheme = () => {
         lineHeight: 1.6,
         letterSpacing: '-0.01em',
         color: '#5C544B',
+        fontWeight: 700
       },
       body1: {
         fontSize: '0.975rem',
@@ -227,6 +238,21 @@ export const createAppTheme = () => {
           },
         },
       },
+      MuiTypography: {
+        defaultProps: {
+          variantMapping: {
+            subtitle1: 'p',
+            subtitle2: 'p',
+          }
+        },
+        styleOverrides: {
+          root: ({ theme }) => ({
+          '&.color-secondary-main': {
+            color: theme.palette.secondary.main,
+          },
+        }),
+        },
+      }
     },
   });
 };
