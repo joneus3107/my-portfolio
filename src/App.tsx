@@ -79,36 +79,31 @@ export default function App() {
         {/* Main Content Sections */}
         <Box component="main" sx={{ flexGrow: 1 }}>
           {/* Hero Section with interactive live metrics & philosophy */}
-          <HeroSection
-            profile={profile}
-            onOpenResumeDoc={() => setResumeDocOpen(true)}
-          />
-
-          {/* Selected Case Studies & Projects */}
-          <ProjectsSection projects={projects} />
-
-          {/* Resume & Work History Timeline */}
-          <ResumeSection
-            profile={profile}
-            experiences={workExperiences}
-            education={educationList}
-            certifications={certificationsList}
-            onOpenDocModal={() => setResumeDocOpen(true)}
-          />
-
-          {/* Technical Skills & Architecture Pillars */}
-          <SkillsSection skillCategories={skillCategories} />
-          {/* --- HIDE SECTIONS --- */}
-          <Box sx={{display: 'none'}}>
+          <Box component='article'>
+            <HeroSection
+              profile={profile}
+              onOpenResumeDoc={() => setResumeDocOpen(true)}
+            />
+            {/* Selected Case Studies & Projects */}
+            <ProjectsSection projects={projects} />
+            {/* Resume & Work History Timeline */}
+            <ResumeSection
+              profile={profile}
+              experiences={workExperiences}
+              education={educationList}
+              certifications={certificationsList}
+              onOpenDocModal={() => setResumeDocOpen(true)}
+            />
+            {/* Technical Skills & Architecture Pillars */}
+            <SkillsSection skillCategories={skillCategories} />
+            {/* --- HIDE SECTIONS --- */}
             {/* Live UI Playground & Design Token Studio */}
             {/* <InteractivePlayground /> */}
-
             {/* Peer & Leader Testimonials */}
             {/* <TestimonialsSection testimonials={testimonials} /> */}
+            {/* Contact Section & Booking */}
+            <ContactSection profile={profile} contactMethod={contactMethod} />
           </Box>
-
-          {/* Contact Section & Booking */}
-          <ContactSection profile={profile} contactMethod={contactMethod} />
         </Box>
         {/* --- /HIDE SECTIONS --- */}
 
@@ -123,14 +118,14 @@ export default function App() {
         /> */}
 
         {/* Printable/Full Formatted Resume Modal */}
-        <ResumeDocumentModal
+        {/* <ResumeDocumentModal
           open={resumeDocOpen}
           onClose={() => setResumeDocOpen(false)}
           profile={profile}
           experiences={workExperiences}
           education={educationList}
           certifications={certificationsList}
-        />
+        /> */}
 
         {/* Portfolio Details Personalizer Modal */}
         {/* <ProfileCustomizerModal

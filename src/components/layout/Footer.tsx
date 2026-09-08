@@ -47,14 +47,14 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
           {/* Brand and Summary */}
           <Box sx={{ maxWidth: 460 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 1.5 }}>
-              <div className="w-8 h-8 rounded-xl bg-[#2D2D2D] text-[#FDFCF9] flex items-center justify-center font-serif font-bold text-sm shadow-xs">
+              <div className="w-12 h-12 rounded-lg bg-[#2D2D2D] text-[#FDFCF9] flex items-center justify-center font-serif font-bold text-sm shadow-xs">
                 {profile.name.charAt(0)}
               </div>
               <div>
-                <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: '"Newsreader", Georgia, serif', fontSize: '1.25rem', lineHeight: 1.2, color: '#2D2D2D' }}>
+                <Typography sx={{ fontWeight: 600, fontFamily: '"Newsreader", Georgia, serif', fontSize: '1.25rem', lineHeight: 1.2, color: '#2D2D2D' }}>
                   {profile.name}
                 </Typography>
-                <Typography variant="caption" sx={{ color: '#8C7B6A', fontWeight: 500 }}>
+                <Typography component='p' variant="caption" sx={{ color: '#8C7B6A', fontWeight: 500 }}>
                   {profile.title}
                 </Typography>
               </div>

@@ -40,7 +40,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
 
   return (
     <Box
-      id="about"
+      component="section"
+      id='hero'
       sx={{
         pt: { xs: 15, md: 19 },
         pb: { xs: 10, md: 14 },
@@ -49,10 +50,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
         background: 'linear-gradient(180deg, #FDFCF9 0%, #F6F3EE 100%)',
       }}
       className="bg-grid-pattern"
+      aria-label="Introduction"
     >
-      {/* Subtle warm natural background glow */}
-      <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[720px] h-[360px] bg-gradient-to-b from-[#EBE4DA]/40 via-[#F5F2EE]/30 to-transparent blur-3xl pointer-events-none -z-10" />
-
       <Container maxWidth="lg">
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: {xs: 3, md: 6} }}>
           
@@ -69,35 +68,35 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
               </div>
             </Box>
 
-            {/* Main Headline */}
-            <Typography
-              variant="h1"
-              sx={{
-                fontSize: { xs: '3rem', sm: '4.25rem', md: '5.25rem' },
-                color: '#2D2D2D',
-                lineHeight: 1.25,
-                mb: 3,
-              }}
-            >
-              Making <Typography variant='inherit' component='span' className='color-secondary-main'>Complex Things</Typography>{' '}<br/>
-              Feel <Typography variant='inherit' component='span' className='color-secondary-main'>Simple</Typography>.
-            </Typography>
-
-            {/* Subtitle */}
-            <Typography
-              variant="subtitle1"
-              sx={{
-                fontSize: { sm: '1.2rem' },
-                fontWeight: 400,
-                lineHeight: 1.7,
-                maxWidth: 770,
-                mx: 'auto',
-                mb: 4.5,
-                letterSpacing: '.02em'
-              }}
-            >
-              Hi, I'm <strong className="text-[#2D2D2D] font-bold">{profile.name}</strong>. A {profile.title} with many years of experience building responsive, performant and pixel-perfect websites. I enjoy turning complex requirements into simple, reliable and thoughtful user experiences.
-            </Typography>
+            <Box className="article-content entry-content">
+              <Typography
+                variant="h1"
+                sx={{
+                  fontSize: { xs: '3rem', sm: '4.25rem', md: '5.25rem' },
+                  color: '#2D2D2D',
+                  lineHeight: 1.25,
+                  mb: 3,
+                }}
+              >
+                Making <Typography variant='inherit' component='span' className='color-secondary-main'>Complex Things</Typography>{' '}<br/>
+                Feel <Typography variant='inherit' component='span' className='color-secondary-main'>Simple</Typography>.
+              </Typography>
+              {/* Subtitle */}
+              <Typography
+                variant="subtitle1"
+                sx={{
+                  fontSize: { sm: '1.2rem' },
+                  fontWeight: 400,
+                  lineHeight: 1.7,
+                  maxWidth: 770,
+                  mx: 'auto',
+                  mb: 4.5,
+                  letterSpacing: '.02em'
+                }}
+              >
+                Hi, I'm <strong className="text-[#2D2D2D] font-bold">{profile.name}</strong>. A {profile.title} with many years of experience building responsive, performant and pixel-perfect websites. I enjoy turning complex requirements into simple, reliable and thoughtful user experiences.
+              </Typography>
+            </Box>
 
             {/* CTA Buttons */}
             <Box
@@ -175,7 +174,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
             </Box>
 
             {/* Quick Skills Pill Carousel */}
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1.2 }}>
+            <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1.2 }} aria-hidden="true">
               {['ReactJS 19', 'Wordpress', 'jQuery', 'Material UI', 'UIkit', 'GSAP', 'Git'].map((tech) => (
                 <Chip
                   key={tech}
@@ -205,6 +204,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ profile, onOpenResumeD
               gap: {xs: 1, md: 3},
               pt: 2,
             }}
+            aria-hidden="true"
           >
             {[
               { label: 'Years of Experience', value: `${profile.yearsExperience}+`, desc: 'Building for the Web' },

@@ -51,6 +51,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
           src={project.image}
           alt={project.title}
           className="project-img w-full h-full object-cover object-top transition-transform duration-500 ease-out"
+          width="500"
           loading="lazy"
         />
 
@@ -65,6 +66,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
             justifyContent: 'space-between',
             alignItems: 'center',
           }}
+          aria-hidden="true"
         >
           <span className="px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-white/95 backdrop-blur-md text-[#5C5146] border border-[#EBE7E0] shadow-xs">
             {project.category}
@@ -77,7 +79,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
         </Box>
 
         {/* Hover overlay hint */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2D2D2D]/60 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4" aria-hidden="true">
           <span className="text-white text-xs font-semibold flex items-center gap-1">
             View detail <ArrowUpRight className="w-3.5 h-3.5" />
           </span>
@@ -130,7 +132,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
 
           {/* Quick Metrics highlight */}
           {project.metrics && project.metrics.length > 0 && (
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, mb: 2.5, p: 1.5, backgroundColor: '#FAF8F5', borderRadius: 2, border: '1px solid #EBE7E0' }}>
+            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, mb: 2.5, p: 1.5, backgroundColor: '#FAF8F5', borderRadius: 2, border: '1px solid #EBE7E0' }} aria-hidden="true">
               {project.metrics.slice(0, 2).map((metric, idx) => (
                 <div key={idx} className='text-center'>
                   <div className="text-lg font-bold font-mono text-[#2D2D2D]">{metric.value}</div>
@@ -141,7 +143,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
           )}
 
           {/* Tech Stack Chips */}
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mb: 3 }}>
+          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.75, mb: 3 }} aria-hidden="true">
             {project.tags.slice(0, 4).map((tag) => (
               <Chip
                 key={tag}
@@ -166,7 +168,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ project, onSelectProje
         </div>
 
         {/* Action Buttons */}
-        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', pt: 2, borderTop: '1px solid #EBE7E0' }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', pt: 2, borderTop: '1px solid #EBE7E0' }} aria-hidden="true">
           <Button
             size="small"
             variant="outlined"

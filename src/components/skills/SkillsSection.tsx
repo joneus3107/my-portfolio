@@ -135,7 +135,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
             >
               <div className="flex items-start justify-between pb-4 mb-6 border-b border-[#EBE7E0]">
                 <div>
-                  <Typography variant="h6" sx={{ fontWeight: 600, fontFamily: '"Newsreader", Georgia, serif', fontSize: '1.35rem', color: '#2D2D2D' }}>
+                  <Typography variant="h3" sx={{ fontSize: '1.35rem', color: '#2D2D2D', letterSpacing: '0' }}>
                     {currentCategory.category}
                   </Typography>
                   <Typography variant="body2" sx={{ color: '#8C7B6A', mt: 0.5 }}>
@@ -175,7 +175,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ skillCategories })
         {/* 4 Architectural Engineering Pillars */}
         <Box sx={{ pt: 2 }}>
           <div className="text-center max-w-xl mx-auto mb-6">
-            <Typography variant="h5" sx={{ fontWeight: 600, fontFamily: '"Caveat", cursive, sans-serif', fontSize: '2.1rem', color: '#2D2D2D', mb: 0.5 }}>
+            <Typography component='h3' sx={{ fontWeight: 600, fontFamily: '"Caveat", cursive, sans-serif', fontSize: '2.1rem', color: '#2D2D2D', mb: 0.5 }}>
               Work Approach
             </Typography>
             <Typography variant="body2" sx={{ color: '#8C7B6A' }}>

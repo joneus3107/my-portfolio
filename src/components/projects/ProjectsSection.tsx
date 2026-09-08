@@ -44,6 +44,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
   return (
     <Box
       id="projects"
+      component="section"
       sx={{
         py: { xs: 10, md: 14 },
         backgroundColor: '#FDFCF9',
@@ -77,6 +78,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({ projects }) =>
             borderRadius: 3,
             border: '1px solid #EBE7E0',
           }}
+          aria-hidden="true"
         >
           {/* Category Filter Buttons */}
           <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 1 }}>

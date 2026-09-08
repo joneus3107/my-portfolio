@@ -26,6 +26,10 @@ import {
 } from 'lucide-react';
 import { ProfileData, WorkExperience, EducationItem, Certification } from '../../types';
 import SectionTag from '../common/SectionTag';
+import IconTitle from '../common/IconTitle';
+import SubTitle from '../common/SubTitle';
+
+import { FONT_NEWSREADER } from '@/src/theme/muiTheme';
 
 interface ResumeSectionProps {
   profile: ProfileData;
@@ -51,6 +55,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
   return (
     <Box
       id="resume"
+      component="section"
       sx={{
         py: { xs: 10, md: 14 },
         backgroundColor: '#FAF8F5',
@@ -110,6 +115,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
           {/* Work Experience Column */}
           <div className="lg:col-span-8">
             <div className="space-y-4">
+              <SubTitle>Work Experience</SubTitle>
               {experiences.map((exp, index) => {
                 const isExpanded = expandedExpId === exp.id;
                 const isLatest = index === 0;
@@ -138,7 +144,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
                         <div>
                           <div className="flex items-center gap-2">
-                            <Typography variant="h6" sx={{ fontWeight: 600, fontSize: '1.2rem', fontFamily: '"Newsreader", Georgia, serif', color: '#2D2D2D' }}>
+                            <Typography component='h4' sx={{ fontWeight: 600, fontSize: '1.2rem', fontFamily: FONT_NEWSREADER, color: 'theme.palette.text.primary' }}>
                               {exp.role}
                             </Typography>
                             {exp.current && (
@@ -149,10 +155,10 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                           </div>
                           <div className="text-sm font-semibold text-[#5C544B] flex items-center gap-1.5 mt-0.5">
                             <span>{exp.company}</span>
-                            <span className="text-[#D8D2C7]">•</span>
-                            <span className="text-xs font-normal text-[#8C7B6A] flex items-center gap-1">
+                            <span className="text-[#D8D2C7]" aria-hidden="true">•</span>
+                            <address className="text-xs font-normal text-[#8C7B6A] flex items-center gap-1" aria-hidden="true">
                               <MapPin className="w-3 h-3 text-[#7E8F7C]" /> {exp.location}
-                            </span>
+                            </address>
                           </div>
                         </div>
 
@@ -176,9 +182,15 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                     {/* Expandable Achievements */}
                     {isExpanded && (
                       <Box sx={{ pt: 2.5, mt: 2, borderTop: '1px solid #EBE7E0' }}>
-                        <div className="text-[11px] font-bold uppercase tracking-wider text-[#8C7B6A] mb-2">
+                        <Typography component="h5" sx={{
+                          fontSize: '.8rem',
+                          textTransform: 'uppercase',
+                          fontWeight: 600,
+                          color: 'theme.pallete.primary.main',
+                          mb: 1.2
+                        }}>
                           Key Deliverables & Impact
-                        </div>
+                        </Typography>
                         <ul className="space-y-2 mb-3.5">
                           {exp.achievements.map((item, i) => (
                             <li key={i} className="flex items-start gap-2.5 text-xs sm:text-sm text-[#5C544B] leading-relaxed">
@@ -189,7 +201,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                         </ul>
 
                         {/* Tech pills */}
-                        <div className="flex flex-wrap gap-1.5 pt-2">
+                        <div className="flex flex-wrap gap-1.5 pt-2" aria-hidden="true">
                           {exp.technologies.map((t) => (
                             <span
                               key={t}
@@ -208,7 +220,8 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
           </div>
 
           {/* Education & Certifications Column */}
-          <div className="lg:col-span-4">
+          <div className="lg:col-span-4" aria-hidden="true">
+            <SubTitle>Background</SubTitle>
             <Box sx={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
               
               {/* Education Block */}
@@ -221,18 +234,11 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                   border: '1px solid #EBE7E0',
                 }}
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#2D2D2D] text-[#FDFCF9] flex items-center justify-center">
-                    <GraduationCap className="w-4 h-4" />
-                  </div>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 700, color: '#2D2D2D' }}>
-                    Education
-                  </Typography>
-                </div>
+                <IconTitle icon={<GraduationCap className="w-4 h-4" />}>Education</IconTitle>
 
                 {education.map((edu) => (
                   <div key={edu.id} className="pt-2">
-                    <Typography variant="subtitle2" sx={{ fontWeight: 600, fontFamily: '"Newsreader", Georgia, serif', fontSize: '1.05rem', color: '#2D2D2D', lineHeight: 1.3 }}>
+                    <Typography variant="subtitle2" sx={{ fontWeight: 600, fontFamily: FONT_NEWSREADER, fontSize: '1.05rem', color: '#2D2D2D', lineHeight: 1.3 }}>
                       {edu.degree}
                     </Typography>
                     <Typography variant="body2" sx={{ color: '#5C544B', fontWeight: 500, mt: 0.5 }}>
@@ -256,14 +262,7 @@ export const ResumeSection: React.FC<ResumeSectionProps> = ({
                   border: '1px solid #EBE7E0',
                 }}
               >
-                <div className="flex items-center gap-2 mb-3">
-                  <div className="w-8 h-8 rounded-lg bg-[#2D2D2D] text-[#FDFCF9] flex items-center justify-center">
-                    <Award className="w-4 h-4" />
-                  </div>
-                  <Typography variant="subtitle1" sx={{ fontWeight: 700, color: '#2D2D2D' }}>
-                    Certifications & Badges
-                  </Typography>
-                </div>
+                <IconTitle icon={<Award className="w-4 h-4" />}>Certifications & Badges</IconTitle>
 
                 <div className="space-y-3 pt-1">
                   {certifications.map((cert) => (
