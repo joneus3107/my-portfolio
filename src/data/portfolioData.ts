@@ -4,21 +4,83 @@ export const initialProfile: ProfileData = {
   name: 'Bình Lê',
   title: 'Middle Frontend / Fullstack',
   subtitle: 'Building minimalist, high-performance web experiences & design systems with React, TypeScript & Next.js',
-  bio: 'Specialized in bridging the gap between elegant UI/UX design and scalable, resilient frontend architecture. I have 6+ years of experience engineering accessible, responsive web applications with sub-second page loads and zero-latency micro-interactions.',
+  bio: 'Frontend Specialist with 5+ years of experience owning web projects for Japanese clients from requirements clarification to production release. Experienced in building high-performance, pixel-perfect interfaces while collaborating directly with stakeholders throughout the project lifecycle.Currently broadening expertise into backend architecture and API development to deliver end-to-end solutions.',
   avatarUrl: '/images/avatar.jpeg',
   location: 'Vĩnh Hội District, Hồ Chí Minh city',
   email: 'lelacbinh3107@gmail.com',
   phone: '(+84) 86 822 7257',
+  birthday: '1999/07/31',
   availability: 'Available for hire',
   yearsExperience: 6,
   completedProjects: 100,
   socials: {
     github: 'https://github.com/joneus3107',
     linkedin: 'https://www.linkedin.com/in/b%C3%ACnh-l%C3%AA-b08512333/',
-  },
+  }
 };
 
 export const sampleProjects: Project[] = [
+  {
+    id: 'casa-sallazzo',
+    title: 'Casa Sallazzo',
+    tagline: 'Architecture & Housing, Contact form, Blog',
+    description: 'Developed a fully responsive layout powered by UIkit to eliminate redundant libraries, with streamlined dynamic content management via ACF.',
+    longDescription: 'Casa Sollazzo is a custom WordPress website that I developed from scratch for a Japanese client in the housing and real estate industry. The website showcases custom-built homes, construction projects, company services, and customer inquiries through a clean, modern, and responsive interface.',
+    category: 'WordPress',
+    practice: false,
+    image: '/images/projects/casa-sallazzo.png',
+    mockupType: 'dashboard',
+    tags: ['WordPress', 'UIkit', 'Github', 'Contact Form 7', 'ACF'],
+    metrics: [
+      { label: 'Responsive Layout', value: '100%' },
+      { label: 'Custom Post Types', value: '3+' },
+      { label: 'Weeks', value: '2' },
+    ],
+    liveUrl: 'https://www.casa-sollazzo.jp/',
+    scope: [
+      'Developed a fully custom WordPress theme from scratch based on the provided design specifications.',
+      'Created reusable templates and flexible ACF components to simplify client content management.',
+      'Optimized website performance, page loading speed, and core SEO fundamentals.',
+      'Ensured cross-browser compatibility and maintained clean code quality throughout the project.',
+    ],
+    techStack: [
+      {label: "Core", value: ['WordPress', 'Vanilla Javascript', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS']},
+      {label: 'Plugins & Libraries', value: ['UIkit', 'Contact Form 7']},
+      {label: 'Design', value: ['Adobe XD']},
+      {label: 'Tools', value: ['GitHub', 'Gulp']},
+    ]
+  },
+  {
+    id: 'les-quatre-saisons',
+    title: 'Les Quatre Saisons',
+    tagline: 'Luxury Wedding & Banquet, Smooth animation, Contact Form',
+    description: 'Architected and delivered an end-to-end luxury party and wedding venue website for a Japanese client, combining custom WordPress development with smooth GSAP animations and UIkit.',
+    longDescription: 'Led the complete end-to-end development of a bespoke website for Les Quatre Saisons, an upscale French-style party and wedding venue in Japan. Given full autonomy over technical decisions, I implemented a lightweight custom WordPress theme using UIkit for responsive layout structure and GSAP for subtle, elegant micro-animations. The project prioritized atmospheric storytelling, seamless touch-enabled gallery exploration, and a friction-free party reservation flow.',
+    category: 'WordPress',
+    practice: false,
+    image: '/images/projects/les-quatre-saisons.png',
+    mockupType: 'dashboard',
+    tags: ['WordPress', 'GSAP', 'ACF', 'UIkit', 'SwiperJS'],
+    metrics: [
+      { label: 'Smooth Animations', value: 'GSAP' },
+      { label: 'Responsive Layout', value: '100%' },
+      { label: 'Custom Post Types', value: '3+' },
+      { label: 'Weeks', value: '2' },
+    ],
+    liveUrl: 'https://l-qs-party.com/',
+    scope: [
+      'Selected and integrated the optimal stack (UIkit, GSAP, SwiperJS) to achieve a modern luxury look while preventing library bloat.',
+      "Engineered high-performance scroll-triggered animations and delicate transitions to elevate the venue's visual storytelling.",
+      'Translated Figma designs into a pixel-perfect, custom WordPress theme fully optimized across mobile, tablet, and desktop viewports.',
+      'Configured ACF for effortless party plan management and integrated Contact Form 7 with custom styling and validation rules.',
+    ],
+    techStack: [
+      {label: "Core", value: ['WordPress', 'Vanilla Javascript', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS']},
+      {label: 'Plugins & Libraries', value: ['UIkit', 'Contact Form 7', 'GSAP', 'SwiperJS']},
+      {label: 'Design', value: ['Figma']},
+      {label: 'Tools', value: ['GitHub', 'Gulp' ]},
+    ]
+  },
   {
     id: 'medical-happy',
     title: 'Medical Happy',
@@ -139,67 +201,6 @@ export const sampleProjects: Project[] = [
       {label: "Core", value: ['ReactJS 19', 'JavaScript (ES6+)']},
       {label: 'Libraries', value: ['SwiperJS', 'MUI', 'Axios']},
       {label: 'Tools', value: ['GitHub', 'Vite', 'Netlify']},
-    ]
-  },
-  {
-    id: 'casa-sallazzo',
-    title: 'Casa Sallazzo',
-    tagline: 'Architecture & Housing, Contact form, Blog',
-    description: 'Developed a fully responsive layout powered by UIkit to eliminate redundant libraries, with streamlined dynamic content management via ACF.',
-    longDescription: 'Casa Sollazzo is a custom WordPress website that I developed from scratch for a Japanese client in the housing and real estate industry. The website showcases custom-built homes, construction projects, company services, and customer inquiries through a clean, modern, and responsive interface.',
-    category: 'WordPress',
-    practice: false,
-    image: '/images/projects/casa-sallazzo.png',
-    mockupType: 'dashboard',
-    tags: ['WordPress', 'UIkit', 'Github', 'Contact Form 7', 'ACF'],
-    metrics: [
-      { label: 'Responsive Layout', value: '100%' },
-      { label: 'Custom Post Types', value: '3+' },
-      { label: 'Weeks', value: '2' },
-    ],
-    liveUrl: 'https://www.casa-sollazzo.jp/',
-    scope: [
-      'Developed a fully custom WordPress theme from scratch based on the provided design specifications.',
-      'Created reusable templates and flexible ACF components to simplify client content management.',
-      'Optimized website performance, page loading speed, and core SEO fundamentals.',
-      'Ensured cross-browser compatibility and maintained clean code quality throughout the project.',
-    ],
-    techStack: [
-      {label: "Core", value: ['WordPress', 'Vanilla Javascript', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS']},
-      {label: 'Plugins & Libraries', value: ['UIkit', 'Contact Form 7']},
-      {label: 'Design', value: ['Adobe XD']},
-      {label: 'Tools', value: ['GitHub', 'Gulp']},
-    ]
-  },
-  {
-    id: 'les-quatre-saisons',
-    title: 'Les Quatre Saisons',
-    tagline: 'Luxury Wedding & Banquet, Smooth animation, Contact Form',
-    description: 'Architected and delivered an end-to-end luxury party and wedding venue website for a Japanese client, combining custom WordPress development with smooth GSAP animations and UIkit.',
-    longDescription: 'Led the complete end-to-end development of a bespoke website for Les Quatre Saisons, an upscale French-style party and wedding venue in Japan. Given full autonomy over technical decisions, I implemented a lightweight custom WordPress theme using UIkit for responsive layout structure and GSAP for subtle, elegant micro-animations. The project prioritized atmospheric storytelling, seamless touch-enabled gallery exploration, and a friction-free party reservation flow.',
-    category: 'WordPress',
-    practice: false,
-    image: '/images/projects/les-quatre-saisons.png',
-    mockupType: 'dashboard',
-    tags: ['WordPress', 'GSAP', 'ACF', 'UIkit', 'SwiperJS'],
-    metrics: [
-      { label: 'Smooth Animations', value: 'GSAP' },
-      { label: 'Responsive Layout', value: '100%' },
-      { label: 'Custom Post Types', value: '3+' },
-      { label: 'Weeks', value: '2' },
-    ],
-    liveUrl: 'https://l-qs-party.com/',
-    scope: [
-      'Selected and integrated the optimal stack (UIkit, GSAP, SwiperJS) to achieve a modern luxury look while preventing library bloat.',
-      "Engineered high-performance scroll-triggered animations and delicate transitions to elevate the venue's visual storytelling.",
-      'Translated Figma designs into a pixel-perfect, custom WordPress theme fully optimized across mobile, tablet, and desktop viewports.',
-      'Configured ACF for effortless party plan management and integrated Contact Form 7 with custom styling and validation rules.',
-    ],
-    techStack: [
-      {label: "Core", value: ['WordPress', 'Vanilla Javascript', 'PHP', 'HTML5', 'EJS', 'CSS3/SCSS']},
-      {label: 'Plugins & Libraries', value: ['UIkit', 'Contact Form 7', 'GSAP', 'SwiperJS']},
-      {label: 'Design', value: ['Figma']},
-      {label: 'Tools', value: ['GitHub', 'Gulp' ]},
     ]
   }
 ];

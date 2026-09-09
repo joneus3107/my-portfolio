@@ -6,8 +6,6 @@ import {
   Typography,
   Box,
   Button,
-  Divider,
-  Chip
 } from '@mui/material';
 import {
   X as CloseIcon,
@@ -16,15 +14,11 @@ import {
   Mail,
   Phone,
   MapPin,
-  Globe,
-  Github,
-  Linkedin,
-  ExternalLink,
-  Award,
-  BookOpen,
-  Briefcase
+  Cake,
 } from 'lucide-react';
-import { ProfileData, WorkExperience, Education, Certification } from '../../types';
+import { ProfileData, WorkExperience, Education, Certification, Project } from '../../types';
+import ResumeIconText from './ResumeIconText';
+import ResumeTitle from './ResumeTitle';
 
 interface ResumeDocumentModalProps {
   open: boolean;
@@ -33,6 +27,7 @@ interface ResumeDocumentModalProps {
   experiences: WorkExperience[];
   education: Education[];
   certifications: Certification[];
+  projects: Project[]
 }
 
 export const ResumeDocumentModal: React.FC<ResumeDocumentModalProps> = ({
@@ -42,45 +37,52 @@ export const ResumeDocumentModal: React.FC<ResumeDocumentModalProps> = ({
   experiences,
   education,
   certifications,
+  projects
 }) => {
   const handlePrint = () => {
     window.print();
   };
 
   const handleDownload = () => {
-    // Generate text/markdown document or download
-    const content = `# ${profile.name} - ${profile.title}
-Email: ${profile.email} | Phone: ${profile.phone} | Location: ${profile.location}
-
-## Professional Summary
-${profile.bio}
-
-## Work Experience
-${experiences.map(exp => `
-### ${exp.role} — ${exp.company} (${exp.startDate} - ${exp.endDate})
-${exp.description}
-Achievements:
-${exp.achievements.map(a => `- ${a}`).join('\n')}
-Technologies: ${exp.technologies.join(', ')}
-`).join('\n')}
-
-## Education
-${education.map(e => `- ${e.degree}, ${e.institution} (${e.year})`).join('\n')}
-
-## Certifications
-${certifications.map(c => `- ${c.name} (${c.issuer}, ${c.date})`).join('\n')}
-`;
-
-    const blob = new Blob([content], { type: 'text/markdown' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${profile.name.replace(/\s+/g, '_')}_Frontend_Developer_Resume.md`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    
   };
+
+  const showProjectInfo = (project: Project) => {
+    return (
+      <div className='project-block'>
+        <h3 className="text-sm font-bold text-zinc-900 mb-1">
+          {project.title}
+          {project.practice && (
+            <small className='inline-block pl-3'>(Side project)</small>
+          )}
+        </h3>
+        <div className='pl-3'>
+          <p className="text-xs text-zinc-600 mb-1.5 leading-relaxed">
+            {project.longDescription}
+          </p>
+          {project.scope && (
+            <>
+              <h4 className="text-xs font-bold text-zinc-900 mb-1 mt-1">Scope</h4>
+              <ul className="list-disc list-outside pl-4 space-y-1 text-xs text-zinc-700 leading-relaxed mb-2">
+                {project.scope.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          <h4 className="text-xs font-bold text-zinc-900 mb-1 mt-1">Tech Stack</h4>
+          <ul className='list-disc list-outside pl-4 space-y-1 text-xs text-zinc-700 leading-relaxed'>
+            {project.techStack.map(tech => (
+              <li>
+                <strong>{`${tech.label} :`}</strong>
+                <span>{tech.value.join(', ')}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <Dialog
@@ -95,9 +97,13 @@ ${certifications.map(c => `- ${c.name} (${c.issuer}, ${c.date})`).join('\n')}
             borderRadius: { xs: 2, sm: 3 },
             backgroundColor: '#FFFFFF',
             p: { xs: 1, sm: 2 },
+            '@media print': {
+              p: 1,
+            }
           }
         }
       }}
+      className='printerContent'
     >
       {/* Top Action Bar (Non-print) */}
       <Box
@@ -105,38 +111,21 @@ ${certifications.map(c => `- ${c.name} (${c.issuer}, ${c.date})`).join('\n')}
         sx={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-end',
           px: { xs: 2, sm: 3 },
           py: 2,
           borderBottom: '1px solid #E4E4E7',
         }}
       >
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-          <Typography variant="subtitle2" sx={{ fontWeight: 700, color: 'text.primary' }}>
-            Official Curriculum Vitae
-          </Typography>
-        </div>
-
-        <div className="flex items-center gap-2">
           <Button
             size="small"
-            variant="outlined"
+            variant="contained"
             onClick={handlePrint}
             startIcon={<Printer className="w-4 h-4" />}
             sx={{ fontSize: '0.8rem', py: 0.5 }}
           >
-            Print
-          </Button>
-
-          <Button
-            size="small"
-            variant="contained"
-            onClick={handleDownload}
-            startIcon={<Download className="w-4 h-4" />}
-            sx={{ fontSize: '0.8rem', py: 0.5 }}
-          >
-            Export Markdown
+            Print / Download
           </Button>
 
           <IconButton onClick={onClose} size="small" sx={{ border: '1px solid #E4E4E7', ml: 1 }}>
@@ -150,89 +139,94 @@ ${certifications.map(c => `- ${c.name} (${c.issuer}, ${c.date})`).join('\n')}
         <Box sx={{ maxWidth: 740, mx: 'auto', backgroundColor: '#FFFFFF' }}>
           
           {/* Header */}
-          <div className="border-b-2 border-zinc-900 pb-5 mb-6">
+          <div className="border-b-2 border-zinc-900 pb-5 mb-6 project-block">
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
               <div>
-                <Typography variant="h3" sx={{ fontWeight: 800, fontSize: { xs: '1.75rem', sm: '2.2rem' }, color: '#09090B' }}>
+                <Typography component="h1" variant="h3" sx={{ fontWeight: 800, fontSize: { xs: '1.75rem', sm: '2.2rem' }, color: '#09090B' }}>
                   {profile.name}
                 </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 600, color: '#3F3F46', fontSize: '1.05rem', mt: 0.5 }}>
+                <Typography component="p" sx={{ fontWeight: 600, color: '#3F3F46', fontSize: '1.05rem', mt: 0.5 }}>
                   {profile.title}
                 </Typography>
               </div>
 
-              <div className="text-xs text-zinc-600 space-y-1 sm:text-right font-mono">
-                <div className="flex sm:justify-end items-center gap-1.5">
-                  <Mail className="w-3 h-3 text-zinc-400" />
-                  <span>{profile.email}</span>
-                </div>
-                <div className="flex sm:justify-end items-center gap-1.5">
-                  <Phone className="w-3 h-3 text-zinc-400" />
-                  <span>{profile.phone}</span>
-                </div>
-                <div className="flex sm:justify-end items-center gap-1.5">
-                  <MapPin className="w-3 h-3 text-zinc-400" />
-                  <span>{profile.location}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Social handles */}
-            <div className="flex flex-wrap gap-4 text-xs font-mono text-zinc-700 mt-3 pt-3 border-t border-zinc-100">
-              {profile.socials.github && (
-                <span>github.com/alexvance</span>
-              )}
-              {profile.socials.linkedin && (
-                <span>linkedin.com/in/alexvance</span>
-              )}
-              <span>Portfolio: alexvance.dev</span>
+              <ul className="text-xs text-zinc-600 space-y-1 sm:text-right font-mono">
+                <li>
+                  <ResumeIconText
+                    icon={<Cake className="w-3 h-3 text-zinc-400" />}
+                  >{profile.birthday}</ResumeIconText>
+                </li>
+                <li>
+                  <ResumeIconText
+                    icon={<Mail className="w-3 h-3 text-zinc-400" />}
+                  >{profile.email}</ResumeIconText>
+                </li>
+                <li>
+                  <ResumeIconText
+                    icon={<Phone className="w-3 h-3 text-zinc-400" />}
+                  >{profile.phone}</ResumeIconText>
+                </li>
+                <li>
+                  <ResumeIconText
+                    icon={<MapPin className="w-3 h-3 text-zinc-400" />}
+                  >{profile.location}</ResumeIconText>
+                </li>
+              </ul>
             </div>
           </div>
 
           {/* Executive Summary */}
-          <div className="mb-6">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 mb-2 border-b border-zinc-200 pb-1">
-              Executive Summary
-            </h4>
+          <section className="mb-6 project-block">
+            <ResumeTitle>Executive Summary</ResumeTitle>
             <p className="text-xs sm:text-sm text-zinc-700 leading-relaxed">
-              {profile.bio} Proven track record across enterprise design systems, high-concurrency SaaS applications, sub-second Core Web Vitals optimization, and leading front-of-the-frontend agile engineering squads.
+              {profile.bio}
             </p>
-          </div>
+          </section>
 
           {/* Core Technical Matrix */}
-          <div className="mb-6">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 mb-2 border-b border-zinc-200 pb-1">
-              Technical Proficiencies & Tools
-            </h4>
-            <div className="text-xs sm:text-sm text-zinc-700 space-y-1 leading-relaxed">
-              <div><strong>Core Frontend:</strong> React 19, Next.js 15, TypeScript, JavaScript (ESNext), HTML5/CSS3 Semantic Standards, Redux Toolkit, Zustand, React Query (TanStack)</div>
-              <div><strong>Styling & Design Systems:</strong> Material UI (MUI), Tailwind CSS, Framer Motion, Emotion, CSS Modules, Storybook, Design Tokens, Figma-to-Code Sync</div>
-              <div><strong>Testing & Architecture:</strong> Vitest, Jest, React Testing Library, Playwright, WCAG AAA Accessibility (a11y), Microfrontends, Webpack, Vite</div>
-              <div><strong>DevOps & Tooling:</strong> Git/GitHub Actions, Docker, Vercel, AWS S3/CloudFront, Turborepo, REST/GraphQL</div>
+          <section className="mb-6 project-block">
+            <ResumeTitle>Technical Proficiencies & Tools</ResumeTitle>
+            <ul className="text-xs sm:text-sm text-zinc-700 space-y-1 leading-relaxed">
+              <li><strong>Core:</strong> ReactJS 19, TypeScript, JavaScript, jQuery, HTML5/CSS3, Redux Toolkit, WordPress</li>
+              <li><strong>Styling & Design Systems:</strong> Material UI (MUI), UIkit, Boostrap</li>
+              <li><strong>Tooling:</strong> Git/GitHub, Vite, Netlify</li>
+            </ul>
+          </section>
+
+          {/* Projects */}
+          <section className="mb-6">
+            <ResumeTitle>Some Projects</ResumeTitle>
+            <div className='flex flex-col gap-2'>
+              {projects.filter(project => project.id === 'netflix-ui').map(project => (
+                <div key={project.id}>
+                  {showProjectInfo(project)}
+                </div>
+              ))}
+              {projects.filter(project => project.id !== 'netflix-ui').slice(0, 2).map(project => (
+                <div key={project.id}>
+                  {showProjectInfo(project)}
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
 
           {/* Professional Experience */}
-          <div className="mb-6">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 mb-3 border-b border-zinc-200 pb-1 flex items-center justify-between">
-              <span>Professional Experience</span>
-              <span className="text-[10px] font-mono text-zinc-500 font-normal">Chronological History</span>
-            </h4>
+          <section className="mb-6">
+            <ResumeTitle>Professional Experience</ResumeTitle>
 
             <div className="space-y-5">
               {experiences.map((exp) => (
-                <div key={exp.id}>
-                  <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-1 mb-1">
-                    <div>
-                      <span className="text-sm font-bold text-zinc-900">{exp.role}</span>
-                      <span className="text-zinc-400 mx-1.5">|</span>
-                      <span className="text-xs font-semibold text-zinc-800">{exp.company}</span>
-                      <span className="text-zinc-400 mx-1.5">|</span>
-                      <span className="text-xs text-zinc-500">{exp.location}</span>
-                    </div>
-                    <span className="text-xs font-mono font-medium text-zinc-600">
+                <div key={exp.id} className='project-block'>
+                  <h3 className="text-sm font-bold text-zinc-900">{exp.role}</h3>
+                  <div className="mb-1">
+                    <time className="text-xs font-mono font-medium text-zinc-600">
                       {exp.startDate} – {exp.endDate}
-                    </span>
+                    </time>
+                    <div className='flex sm:flex-row sm:items-baseline'>
+                      <span className="text-xs font-semibold text-zinc-800">{exp.company}</span>
+                      <span className="text-zinc-400 mx-1.5" aria-hidden="true">|</span>
+                      <address className="flex gap-1 text-xs text-zinc-500"><MapPin className="w-3 h-3 text-zinc-400" />{exp.location}</address>
+                    </div>
                   </div>
 
                   <p className="text-xs text-zinc-600 mb-1.5 leading-relaxed">
@@ -251,29 +245,24 @@ ${certifications.map(c => `- ${c.name} (${c.issuer}, ${c.date})`).join('\n')}
                 </div>
               ))}
             </div>
-          </div>
+          </section>
 
-          {/* Education & Certifications Side-by-Side */}
+          {/* Side-by-Side Sections */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-2">
             {/* Education */}
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 mb-2 border-b border-zinc-200 pb-1">
-                Education
-              </h4>
+            <section className='project-block'>
+              <ResumeTitle>Education</ResumeTitle>
               {education.map((edu) => (
                 <div key={edu.id} className="mb-2 text-xs">
                   <div className="font-bold text-zinc-900">{edu.degree}</div>
                   <div className="text-zinc-600">{edu.institution} — {edu.location}</div>
-                  <div className="font-mono text-zinc-500 text-[11px]">{edu.year} {edu.honors && `• ${edu.honors}`}</div>
                 </div>
               ))}
-            </div>
+            </section>
 
             {/* Certifications */}
-            <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider text-zinc-900 mb-2 border-b border-zinc-200 pb-1">
-                Certifications & Accreditations
-              </h4>
+            <section className='project-block'>
+              <ResumeTitle>Certifications</ResumeTitle>
               <div className="space-y-1.5 text-xs text-zinc-700">
                 {certifications.map((c) => (
                   <div key={c.id}>
@@ -282,7 +271,31 @@ ${certifications.map(c => `- ${c.name} (${c.issuer}, ${c.date})`).join('\n')}
                   </div>
                 ))}
               </div>
-            </div>
+            </section>
+
+            {/* Certifications */}
+            <section className='project-block'>
+              <ResumeTitle>Recommendation Letter</ResumeTitle>
+              <ul className="flex gap-1">
+                <li>
+                  <a href="https://drive.google.com/file/d/1oBhXmrw5n5kNOlFTjOiK8IaGJraC9O31/view" target='_blank' rel='noopener'>
+                    <img src="/images/rec_letter_qr.png" alt="Recommendation letter QR" width='100' />
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+             {/* Certifications */}
+            <section className='project-block'>
+              <ResumeTitle>Personal Portfolio</ResumeTitle>
+              <ul className="flex gap-1">
+                <li>
+                  <a href="https://lelacbinhportfolio.netlify.app/" target='_blank' rel='noopener'>
+                    <img src="/images/portfolio_qr.png" alt="Personal portfolio QR" width='100' />
+                  </a>
+                </li>
+              </ul>
+            </section>
           </div>
 
         </Box>

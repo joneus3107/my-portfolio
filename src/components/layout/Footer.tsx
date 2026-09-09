@@ -1,21 +1,21 @@
 import React from 'react';
-import { Container, Box, Typography, IconButton, Tooltip, Divider } from '@mui/material';
+import { Container, Box, Typography, IconButton, Tooltip, Divider, Button } from '@mui/material';
 import { 
   ArrowUp, 
   Github, 
   Linkedin,
-  Heart,
   Code2,
   Mail,
-  Sparkles
+  FileText
 } from 'lucide-react';
 import { ProfileData } from '../../types';
 
 interface FooterProps {
   profile: ProfileData;
+  onOpenResumeDoc: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ profile }) => {
+export const Footer: React.FC<FooterProps> = ({ profile, onOpenResumeDoc }) => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -62,6 +62,18 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
             <Typography variant="body2" sx={{ color: '#5C544B', mb: 2, lineHeight: 1.6 }}>
               Crafting modern, accessible, and ultra-responsive web interfaces with React, TypeScript, and clean design systems.
             </Typography>
+
+            <Box sx={{mb:1}}>
+              <Button
+                variant="contained"
+                size="small"
+                onClick={onOpenResumeDoc}
+                startIcon={<FileText className="w-4 h-4" />}
+                sx={{ fontSize: '0.8rem', py: 0.5, borderRadius: '8px' }}
+              >
+                View Full Resume
+              </Button>
+            </Box>
             
             {/* Direct Email Badge */}
             <a 
@@ -71,6 +83,7 @@ export const Footer: React.FC<FooterProps> = ({ profile }) => {
               <Mail className="w-3.5 h-3.5 text-[#7E8F7C]" />
               {profile.email}
             </a>
+
           </Box>
 
           {/* Quick Links & Socials */}

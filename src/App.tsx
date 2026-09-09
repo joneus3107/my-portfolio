@@ -67,6 +67,7 @@ export default function App() {
           flexDirection: 'column',
           position: 'relative',
         }}
+        className="printerController"
       >
         {/* Sticky Frosted Navbar */}
         <Navbar
@@ -103,7 +104,7 @@ export default function App() {
         </Box>
 
         {/* Clean Footer */}
-        <Footer profile={profile} />
+        <Footer profile={profile} onOpenResumeDoc={() => setResumeDocOpen(true)} />
 
         {/* Floating AI Recruiter & Experience Assistant */}
         {/* <AiPortfolioAssistant
@@ -113,14 +114,15 @@ export default function App() {
         /> */}
 
         {/* Printable/Full Formatted Resume Modal */}
-        {/* <ResumeDocumentModal
+        <ResumeDocumentModal
           open={resumeDocOpen}
           onClose={() => setResumeDocOpen(false)}
           profile={profile}
           experiences={workExperiences}
           education={educationList}
           certifications={certificationsList}
-        /> */}
+          projects={projects}
+        />
 
         {/* Portfolio Details Personalizer Modal */}
         {/* <ProfileCustomizerModal

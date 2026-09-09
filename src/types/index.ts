@@ -79,6 +79,7 @@ export interface ProfileData {
   location: string;
   email: string;
   phone: string;
+  birthday: string;
   availability: 'Available for hire' | 'Open to opportunities' | 'Booked';
   yearsExperience: number;
   completedProjects: number;
